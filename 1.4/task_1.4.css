@@ -1,22 +1,23 @@
 .box{
 	width: auto;
-	height:500px;
+	height:100%;
 	border: 1px solid black;
-	text-align: center;
 
 }
 .center{
-	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
 	width: 400px;
 	height: 200px;
 	background-color: #ccc;
-	position: relative;
-	margin-top: 150px;
-	margin-bottom: 150px;
 }
 .left{
 	position: absolute;
-	border-radius: 50px;
+	border-radius: 50%;
 	border:50px solid transparent;
 	border-top-color:#fc0;
 	transform: rotate(135deg);
