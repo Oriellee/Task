@@ -1,8 +1,5 @@
-div{
-	border: 1px solid red;
-	}
+
 	.boxtop{
-		position: absolute;
 		width: 100%;
 	    height: 75px; 
 	    background: black;
@@ -11,7 +8,7 @@ div{
 	      height: 50px;
 	      width: 100px;
 	      position: absolute;
-	      top: 7.5px;
+	      top: 20px;
 	      left: 30px;
 	    }
 	    #list1{
@@ -34,8 +31,6 @@ div{
 		width: 100%;
 		height: auto;
 		background-color: #D8D8D8;
-		position: absolute;
-		top: 75px;
 		overflow: hidden;
 		}
 
@@ -50,7 +45,7 @@ div{
 			.celan{
 				height: 70px;
 				margin-bottom: 10px;
-			}
+					}
 				.cebian{
 					width: 5px;
 					height: 50px;
@@ -63,14 +58,39 @@ div{
 					margin-top: 25px;
 					margin-left: 10px;
 					font-weight: bold;
-				}
-			.mailaddress{
+			}
+			.mail{
+				margin-bottom: 10px;
 
 			}
+			.mailaddress{
+				position: relative;
+				width: 450px;
+				margin-bottom: 10px;
+
+				}
 				.mailtext{
 					float: left;
-				}
-				
+					width: 150px;
+					text-align: right;
+					margin-left: 50px;
+
+			}
+			.tishi1{
+				width: 150px;
+				color: grey;
+				font-size: 5px;
+				margin-left: 150px;
+				margin-bottom: 10px;
+			}
+			.submit1{
+				width: 400px;
+				height: 40px;
+				margin-left: 25px;
+				background-color: blue;
+				color: white;
+			}
+
 		.left{
 			height: auto;
 			margin: 20px 530px 20px 20px;
@@ -133,4 +153,11 @@ div{
 		       display: inline;
 		       text-indent: 2em;
 		    }
-	    
+	
+	.boxbottom{
+		width: 100%;
+		height: 50px;
+		background-color:black;
+		color: white;
+		text-align: center;
+		}
