@@ -1,14 +1,17 @@
+body{
+	margin: 0px;
+}
 body div{
 	border: 1px solid red;
 }
 	.box{
-		width: 980px;
+		width: 892px;
 		height: 1386px;
+		padding :0px 44px 0px 44px;
 		}
 		.title1{
 			width:892px;
 			height: 61px;
-			margin: 0px 44px;
 				}
 			.logo{
 				float: left;
@@ -34,12 +37,12 @@ body div{
 			width:892px;
 			height: 2px;
 			background-color: #938e8c; 
-			margin: 0px 44px 20px 44px;
+			margin-bottom: 20px;
 		}
 		.second{
 			width: 892px;
 			height: 301px;
-			margin: 0px 44px 20px 44px;
+			margin-bottom: 20px;
 				}
 			.secondleft{
 				width: 641px;
@@ -121,3 +124,156 @@ body div{
 							font-family: 微软雅黑;
 						}
 
+		.three{
+			width: 641px;
+			overflow: hidden;
+			margin-bottom: 20px;
+			}
+			.threeright{
+				width: 200px;
+				float: right;
+				}
+				.righttitle{
+					font-size: 16px;
+					color: #cc7680;
+					font-weight: bold;
+					text-decoration: underline;
+					text-transform: capitalize;
+					margin-bottom: 10px;
+					font-family: 微软雅黑;
+					}
+				.righttext{
+					font-size: 12px;
+					line-height: 16px;
+					font-family: 微软雅黑;
+					opacity: 0.7;
+					color: #231815;
+					}
+					.righttextwhat{
+						float: left;
+						font-size: 12px;
+						line-height: 16px;
+						font-family: 微软雅黑;
+						opacity: 0.7;
+						color: #231815;
+						}
+					.righttextshuzi{
+						font-size: 12px;
+						color: #cd4a48;
+						font-family: 微软雅黑;
+						font-style: italic;
+						line-height: 16px;
+						opacity: 0.7;
+						}
+			.threeleft{
+				float: left;
+				width: 200px;
+				}
+				.lefttitle{
+					font-size: 16px;
+					color: #418c59;
+					font-weight: bold;
+					text-decoration: underline;
+					text-transform: capitalize;
+					margin-bottom: 10px;
+					font-family: 微软雅黑;
+					}
+				.lefttext{
+					font-size: 12px;
+					line-height: 16px;
+					font-family: 微软雅黑;
+					opacity: 0.7;
+					color: #231815;
+					}
+			.threecenter{
+				margin-left: 220px;
+				margin-right: 220px;
+				width: 200px;
+				}
+				.centertitle{
+					font-size: 16px;
+					color: #d2994f;
+					font-weight: bold;
+					text-decoration: underline;
+					text-transform: capitalize;
+					margin-bottom: 10px;
+					font-family: 微软雅黑;
+					}
+				.centertext{
+					font-size: 12px;
+					line-height: 16px;
+					font-family: 微软雅黑;
+					opacity: 0.7;
+					color: #231815;
+					}
+		.four{
+			width: 892px;
+			margin-bottom: 20px;
+			}
+			.fourleft{
+				float: left;
+				width: 415px;
+				margin-right: 10px;
+				}
+				.fourlefttop{
+					height: 180px;
+					}
+					.toptext1{
+						font-size: 72px;
+						color: #f5e327;
+						font-family: 黑体;
+						font-weight: bold;
+						font-style: italic;
+						float: left;
+
+						}
+					.toptext2{
+						font-size: 42px;
+						color: #11456b;
+						font-family: 黑体;
+						font-weight: bold;
+						line-height: 16px;
+						float: left;
+						margin-top: 43px;
+						margin-left: 20px;
+						overflow: both;
+					}
+					.toptext3{
+						font-size: 42px;
+						color: #11456b;
+						font-family: 黑体;
+						font-weight: bold;
+						line-height: 16px;
+						margin-top: 10px;
+
+					}
+					.toptext4{
+						font-size: 33px;
+						color: #11456b;
+						font-family: 黑体;
+						font-weight: bold;
+						margin-top: 10px;
+						
+					}
+					.toptext5{
+						width: 415px;
+						height: 2px;
+						background-color: #11456b;
+						margin: 10px 0px;
+						}
+				.fourleftbottom{
+
+						}
+						.bottomtop{
+							font-size: 70px;
+							color: #f5e327;
+							font-family: 微软雅黑;
+							float: left;
+							margin: 0px 15px;
+							}
+						.bottomdown{
+							float: right;
+							width: 150px;
+							height: 300px; 
+							top: 30px;
+							border: 1px solid red;							}
