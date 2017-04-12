@@ -214,9 +214,11 @@ body div{
 				float: left;
 				width: 415px;
 				margin-right: 10px;
+
 				}
 				.fourlefttop{
 					height: 180px;
+					margin-bottom: 20px;
 					}
 					.toptext1{
 						font-size: 72px;
@@ -269,11 +271,141 @@ body div{
 							color: #f5e327;
 							font-family: 微软雅黑;
 							float: left;
+							clear: both;
 							margin: 0px 15px;
 							}
 						.bottomdown{
 							float: right;
+							clear: both;
 							width: 150px;
-							height: 300px; 
-							top: 30px;
-							border: 1px solid red;							}
+							height: 250px; 
+							border: 1px solid red;
+							margin: 10px;
+							}
+						.bottomcenter{
+							height: 412px;
+							font-size: 12px;
+							color: #767777;
+							font-style: 宋体;
+							line-height: 16px;
+							}
+			.fourright{
+				float: right;
+				width: 458px;
+				}
+				.fourrighttop{
+					width: 458px;
+					height: 275px;
+					margin-bottom: 20px;
+					}
+					.fourrighttop img{
+						position: absolute;
+						width: 458px;
+						height: 275px
+						}
+					.fudong{
+						position: relative;
+						top: 215px;
+						height: 61px;
+						width: : 458px;
+						background-color: black;
+						background-color: rgba(0,0,0,0.4);
+						}
+						.greenborder{
+							position: relative;
+							width: 3px;
+							height: 44px;
+							background-color: #72b16a;
+							float: left;
+							margin: 6px 10px 6px 40px;
+							}
+						.fudongtext1{
+							float: left;
+							font-size: 26px;
+							color: #ffffff;
+							font-style: 微软雅黑;
+							margin-top: 12px;
+							margin-right: 10px;
+							}
+						.fudongtext2{
+							float: left;
+							font-size: 12px;
+							color: #72b16a;
+							font-style: italic;
+							font-family: 微软雅黑;
+							letter-spacing: 140%;
+							margin-top: 23px;
+
+							}
+				.fourrightbottom{
+					width: 459px;
+					height: 318px;
+					background-color: #FFEFD5;
+					}
+					.rbt{
+						padding: 20px 20px 0px 20px;
+						}
+						.rightbottomtext1{
+							font-size: 16px;
+							color: #5a5b5b;
+							line-height: 20px;
+							margin-bottom: 20px;
+							}
+							.bottomtext1right{
+								font-size: 12px;
+								color: #5a5b5b;
+								font-style: italic;
+								font-family: 宋体;
+								float: right;
+								}
+					.rbb{
+						height: 160px;
+						}
+						.rbbl{
+							width: 260px;
+							height: 160px;
+							background-color: #F08080;
+							float: left;
+							color: #ffffff;
+							}
+							.rbbll{
+								font-size: 110px;
+								font-family: 微软雅黑;
+								float: left;
+								}
+							.rbblc{
+								width: 2px;
+								height: 86px;
+								background-color: #ffffff;
+								margin-left:70px;
+								margin-top: 30px;
+								}
+							.rbblr{
+								float: right;
+								margin-top: 38px;
+								margin-right:15px; 
+								}
+								.rbblrt{
+									font-size: 21px;
+									font-family: 黑体;
+									font-style: italic;
+									line-height: 24px;
+									}
+								.rbblrb{
+									font-size: 12px;
+									font-family: 黑体;
+									line-height: 10px;
+									}
+						.rbbr{
+							font-size: 14px;
+							color: #5a5b5b;
+							font-family: 黑体;
+							font-style: italic;
+							line-height: 16px;
+
+							}
+							.rbbr strong{
+								font-size: 72px;
+								color: #d45d5c;
+								font-family: 黑体;
+								}
