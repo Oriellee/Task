@@ -1,9 +1,6 @@
 body{
 	margin: 0px;
 }
-body div{
-	border: 1px solid red;
-}
 	.box{
 		width: 892px;
 		height: 1386px;
@@ -37,12 +34,12 @@ body div{
 			width:892px;
 			height: 2px;
 			background-color: #938e8c; 
-			margin-bottom: 20px;
+			margin-bottom: 50px;
 		}
 		.second{
 			width: 892px;
 			height: 301px;
-			margin-bottom: 20px;
+			margin-bottom: 50px;
 				}
 			.secondleft{
 				width: 641px;
@@ -127,7 +124,7 @@ body div{
 		.three{
 			width: 641px;
 			overflow: hidden;
-			margin-bottom: 20px;
+			margin-bottom: 50px;
 			}
 			.threeright{
 				width: 200px;
@@ -208,7 +205,8 @@ body div{
 					}
 		.four{
 			width: 892px;
-			margin-bottom: 20px;
+			height: 610px;
+			margin-bottom: 50px;
 			}
 			.fourleft{
 				float: left;
@@ -404,8 +402,38 @@ body div{
 							line-height: 16px;
 
 							}
-							.rbbr strong{
+							.mhl{
+								height: 1px;
 								font-size: 72px;
+								float: left;
+								margin-left: -40px;
+								margin-top: 30px;
+								margin-right: 10px;
 								color: #d45d5c;
 								font-family: 黑体;
 								}
+							.mhr{
+								height: 1px;
+								font-size: 72px;
+								margin-top: 30px;
+								float: right;
+								color: #d45d5c;
+								font-family: 黑体;
+								}
+		.five{
+			margin: 50px 0px;
+			width: 892px;
+			height: 40px;
+			}
+			.lastborder{
+				width: 892px;
+				height: 1px;
+				background-color: #938e8c;
+				}
+			.time2{
+				float: right;
+				font-size: 12px;
+				color: #d45d5c;
+				font-family: 黑体;
+				margin: 5px;
+				}
