@@ -1,0 +1,57 @@
+body div{
+	border: 1px solid red;
+	}
+	.box{
+		width: 100%；
+		margin: 0px;
+		min-width: 680px;
+		}
+	.title{
+		height: 60px;
+		}
+		.title img{
+			width: 130px;
+			height: 50px;
+			margin-top: 5px;
+			margin-left: 30px;
+			}
+		#menu{
+			font: 15px 微软雅黑;
+			float: right;
+			margin-right: 20px;
+			}
+			#menu li{
+				list-style: none;
+				padding: 0px;
+				margin:0px;
+				float: left;
+
+
+				}
+				#menu li a{
+					height: 20px;
+					display: block;
+					padding: 5px 10px;
+					text-decoration: none;
+					/*border: 1px solid red;*/
+					}
+					#menu li a img{
+						width: 25px;
+						height: 25px;
+						margin:-10px 0px 0px -5px;
+						border: 1px solid red;
+						}
+	.second{
+		width:100%;
+		height:600px;
+		background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492258363333&di=7c0cac7a096426528fd837da29f0d2b7&imgtype=0&src=http%3A%2F%2Fa-ssl.duitang.com%2Fuploads%2Fitem%2F201504%2F22%2F20150422H5118_wsetv.jpeg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		}
+		.text{
+			float: left;
+			margin-top: 200px;
+			margin-left: 170px;
+			color: #505050;
+			font-weight: bold;
+			}
