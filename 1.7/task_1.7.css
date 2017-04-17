@@ -4,7 +4,7 @@ body div{
 	.box{
 		width: 100%；
 		margin: 0px;
-		min-width: 680px;
+		min-width: 900px;
 		}
 	.title{
 		height: 60px;
@@ -16,7 +16,7 @@ body div{
 			margin-left: 30px;
 			}
 		#menu{
-			font: 15px 微软雅黑;
+			font: 15px LiSu;
 			float: right;
 			margin-right: 20px;
 			}
@@ -33,7 +33,6 @@ body div{
 					display: block;
 					padding: 5px 10px;
 					text-decoration: none;
-					/*border: 1px solid red;*/
 					}
 					#menu li a img{
 						width: 25px;
@@ -44,14 +43,149 @@ body div{
 	.second{
 		width:100%;
 		height:600px;
-		background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492258363333&di=7c0cac7a096426528fd837da29f0d2b7&imgtype=0&src=http%3A%2F%2Fa-ssl.duitang.com%2Fuploads%2Fitem%2F201504%2F22%2F20150422H5118_wsetv.jpeg);
-		background-repeat: no-repeat;
-		background-size: cover;
 		}
-		.text{
-			float: left;
-			margin-top: 200px;
-			margin-left: 170px;
-			color: #505050;
-			font-weight: bold;
+		.second img{
+			position: relative;
+			width: 100%;
+			height: 600px;
+			top: -15px;
 			}
+		.text{
+			position: relative;
+			margin-top: -400px;
+			margin-left: 150px;
+			color: #330000;
+			font-weight: bold;
+			font-family:宋体; 
+			}
+			.text input{
+				background-color: #FF3333;
+				width: 300px;
+				height: 60px;
+				color: white;
+				font-size: 30px;
+				}
+	.three{
+		height: 300px;
+		}
+		.threecenter{
+			width: 980px;
+			height: 300px;
+			margin:0px auto;
+			}
+		
+		.three1{
+			float: left;
+			width: 200px;
+			height: 250px;
+			margin:20px;
+			}
+		.fenge{
+			width: 2px;
+			height: 100px;
+			margin: 100px 0px;
+			background-color: #C8C8C8;
+			}
+			.three img{
+				width: 200px;
+				height: 200px;
+				}
+			.three p{
+				text-align: center;
+				font-weight: bold;
+				font-family:LiSu; 
+				}
+	.four{
+		width: 100%;
+		height: 350px;
+		background-color: #d7fff0;
+		}
+		.four img{
+			display: block;
+			width: 100px;
+			height: 100px;
+			margin:83px auto 10px auto;
+			}
+		.four p{
+			text-align: center;
+			font-size: 50px;
+			font-family: LiSu;
+			}
+	.five{
+		width: 100%;
+		height: 350px;
+		}
+		.five img{
+			width: 100%;
+			height: 350px;
+			}
+		.five h3{
+			position: relative;
+			top: -300px;
+			text-align: center;
+			font-family: 微软雅黑;
+			}
+		.five p{
+			position: relative;
+			top: -300px;
+			text-align: center;
+			font-family: 微软雅黑;
+			}
+		.fengexian{
+			width: 50px;
+			height: 3px;
+			margin: 0px auto;
+			background-color: black;
+			position: relative;
+			top: -240px;
+			}
+/*		.xiala{
+			position: relative;
+			top: -260px;
+			text-align: center;
+			}*/
+		.xiala{
+			height:40px;
+			background:#fff url(img/icons.png) no-repeat right -24px;
+			color: #a1a1a1; 
+			font-size: 16px;
+			border:1px solid #E4E4E4;
+			cursor:pointer;
+			position:relative;
+			top: -260px;
+			text-align: center;
+			filter:alpha(opacity=0);
+			}
+			.xiala label{
+				padding-left:10px;
+				font-size:16px;
+				z-index:2; 
+				color: #a1a1a1; 
+				line-height: 40px; 
+				height: 40px; 
+				display: block;
+				}
+			.xiala .select{
+				width:100px;
+				height:40px;
+				line-height:40px;
+				z-index:4;
+				position:absolute;
+				top:0;
+				left:0;
+				margin:0;
+				padding:0;
+				opacity:0; 
+				*margin-top:12px; 
+				filter:alpha(opacity=0);
+				cursor:pointer; 
+				font-size: 16px;
+				}
+			.xiala input{
+				width: 180px;
+				height: 40px;
+				background-color: #FF3333;
+				color: white;
+				font-size: 15px;
+				font-family: 微软雅黑;
+				}
