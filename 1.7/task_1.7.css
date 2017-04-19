@@ -97,13 +97,18 @@ body div{
 		height: 350px;
 		background-color: #d7fff0;
 		}
-		.four img{
-			display: block;
+
+		.fourimg{
+			position: relative;
 			width: 100px;
 			height: 100px;
-			margin:0px auto 10px auto;
+			margin:83px auto 10px auto;
 			}
-		.four p{
+			.fourimg img{
+				width: 100px;
+				height: 100px;
+				}
+			.four p{
 			text-align: center;
 			font-size: 50px;
 			font-family: LiSu;
@@ -157,10 +162,10 @@ body div{
 				font-size: 15px;
 				font-family: 微软雅黑;
 				}
-		.six{
-			width: 100%;
-			height: 402px;
-			}
+	.six{
+		width: 100%;
+		height: 402px;
+		}
 			.sixleft{
 				float: left;
 				width: 69%;
@@ -172,6 +177,7 @@ body div{
 					height: 400px;
 					}
 				.sixlefttext{
+					position: relative;
 					width: 300px;
 					margin: -300px auto 0px auto;
 					color: #330000;
@@ -187,7 +193,7 @@ body div{
 					.sixlefttext p{
 						text-align: center;
 						}
-			.sixright{
+				.sixright{
 				float: left;
 				width: 30%;
 				height: 400px;
@@ -264,3 +270,66 @@ body div{
 				width: 33%;
 				height: 400px;
 				}
+		.seven{
+			width: 100%;
+			height: 300px;
+			text-align: center;
+			}
+			.seven h2{
+				margin-top: 80px;
+				font-family: 微软雅黑；
+				}
+			.seven p{
+				font-size: 15px;
+				color: grey;
+				}	
+		.form{
+			width: 980px;
+			height: 330px;
+			margin: auto;
+			}
+			.formleft{
+				float: left;
+				width: 320px;
+				padding: 0px 20px;
+				}	
+				.formleft h3{
+					font-size: 20px;
+					color: grey;
+					}
+				.formleft p{
+					font-size: 12px;
+					color: grey;
+					line-height: 20px;
+					font-style: 宋体;
+					}
+			.formright{
+				float: right;
+				width: 610px;
+				
+				}	
+				.formright input{
+					width: 250px;
+					height: 30px;
+					margin-top: 20px;
+					margin-left: 20px;
+					background-color: #F0F0F0;
+					color:#707070;
+					font-size: 12px;
+					font-family: 宋体;
+					}
+				.formright textarea{
+					width: 530px;
+					height: 100px;
+					margin-top: 20px;
+					margin-left: 20px;
+					background-color: #F0F0F0;
+					color:#707070;
+					font-size: 12px;
+					font-family: 宋体;
+					}
+				.formright .submit2{
+					width: 540px;
+					height: 40px;
+					color: #484848;
+					}
