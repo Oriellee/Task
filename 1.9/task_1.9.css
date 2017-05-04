@@ -3,7 +3,7 @@ html,div{
 	}
 	.title{
 		height: 50px;
-		background-color: #336699;
+		background-color: #4682B4;
 		min-width: 700px;
 		}
 	.logo{
@@ -36,3 +36,98 @@ html,div{
 		font-size: 12px;
 		text-decoration: none;
 		}
+	.center{
+		height: 1000px;
+		}
+	.left{
+		width: 300px;
+		height: 1000px;
+		background-color: #666666;
+		}
+	.tx{
+		height: 100px;
+		}
+	.tx img{
+		float: left;
+		margin-left: 50px;
+		margin-top: 20px;
+		}
+	.tx p{
+		margin-top: 40px;
+		margin-left: 20px;
+		float: left;
+		color: white;
+		}
+	.fs img{
+		margin-top: 35px;
+		margin-left: 50px;
+		}
+	.fs p{
+		margin-top: 30px;
+		margin-left: 50px;
+		}
+	.xiala{
+		height: 200px;
+		list-style-type: none;
+		}
+	.xiala a {
+ display: block; width: 80px; text-align:center;
+}
+.xiala a:link  {
+ color:#666; text-decoration:none;
+}
+.xiala a:visited  {
+ color:#666;text-decoration:none;
+}
+.xiala a:hover  {
+ color:#FFF;text-decoration:none;font-weight:bold;
+}
+
+.xiala li {
+	width: 180px; background:#CCC;
+}
+.xiala li a{
+	width: 160px; text-align:left;padding-left:20px;
+}
+.xiala li a:hover{
+	background:#999;
+}
+.xiala li dl {
+ line-height: 27px;  list-style-type: none;text-align:left;
+ left: -999em; width: 180px;display:none;
+}
+.xiala li dl dd{
+ float: left;
+ width: 180px;
+ background: #F6F6F6; 
+}
+
+.xiala li dl a{
+ display: block; width: 180px;width: 156px;text-align:left;padding-left:24px;
+}
+.xiala li dl a:link  {
+ color:#666; text-decoration:none;
+}
+.xiala li dl a:visited  {
+ color:#666;text-decoration:none;
+}
+.xiala li dl a:hover  {
+ color:#F3F3F3;text-decoration:none;font-weight:normal;
+ background:#C00;
+}
+
+.xiala li:hover dl {
+ left: auto;
+ display:block;
+}
+.xiala li.sfhover dl {
+ left: auto;
+}
+.xiala li.sfhover a {
+ float:left;
+ color : #00FF00;
+}
+#mrc {
+ clear: left; 
+}
+
