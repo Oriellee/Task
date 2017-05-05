@@ -4,7 +4,7 @@ html,div{
 	.title{
 		height: 50px;
 		background-color: #4682B4;
-		min-width: 700px;
+		min-width: 1350px;
 		}
 	.logo{
 		float: left;
@@ -26,6 +26,7 @@ html,div{
 		float: right;
 		margin-top: 17px;
 		margin-right: 5px;
+
 		}
 	.title a{
 		display: block;
@@ -38,6 +39,7 @@ html,div{
 		}
 	.center{
 		height: 1000px;
+		min-width: 1350px;
 		}
 	.left{
 		width: 300px;
@@ -67,67 +69,113 @@ html,div{
 		margin-left: 50px;
 		}
 	.xiala{
-		height: 200px;
+		line-height: 40px;
 		list-style-type: none;
+		background-color: #666666;
+		margin-top: 50px;
+		-webkit-padding-start: 0px;
 		}
+
 	.xiala a {
- display: block; width: 80px; text-align:center;
-}
-.xiala a:link  {
- color:#666; text-decoration:none;
-}
-.xiala a:visited  {
- color:#666;text-decoration:none;
-}
-.xiala a:hover  {
- color:#FFF;text-decoration:none;font-weight:bold;
-}
+	 display: block; 
+	 width: 60px; 
+	 text-align:center;
+	}
+	.xiala a:link  {
+	 color:#666; text-decoration:none;
+	}
+	.xiala a:visited  {
+	 color:white;font-family: 微软雅黑;text-decoration:none;
+	}
+	.xiala a:hover  {
+	 color:black;text-decoration:none;
+	}
 
-.xiala li {
-	width: 180px; background:#CCC;
-}
-.xiala li a{
-	width: 160px; text-align:left;padding-left:20px;
-}
-.xiala li a:hover{
-	background:#999;
-}
-.xiala li dl {
- line-height: 27px;  list-style-type: none;text-align:left;
- left: -999em; width: 180px;display:none;
-}
-.xiala li dl dd{
- float: left;
- width: 180px;
- background: #F6F6F6; 
-}
+	.xiala li {
+		width: 300px;margin-top: 15px;
+	}
+	.xiala li a{
+		width: 260px; text-align:left;padding-left: 40px;
+	}
+	.xiala li a:hover{
+		background:#F6F6F6;
+	}
+	.xiala li dl {
+	 list-style-type: none;
+	 text-align:left;
+	 width: 300px;
+	 display:none;
+	 margin: 0px;
+	}
+	.xiala li dl dd{
+	 float: left;
+	 width: 300px;
+	 line-height: 40px;
+	 background: #F6F6F6; 
+	 -webkit-margin-start: 0px;
+	}
 
-.xiala li dl a{
- display: block; width: 180px;width: 156px;text-align:left;padding-left:24px;
-}
-.xiala li dl a:link  {
- color:#666; text-decoration:none;
-}
-.xiala li dl a:visited  {
- color:#666;text-decoration:none;
-}
-.xiala li dl a:hover  {
- color:#F3F3F3;text-decoration:none;font-weight:normal;
- background:#C00;
-}
+	.xiala li dl a{
+	 display: block; 
+	 width: 240px;
+	 padding-left: 60px;
+	 -webkit-margin-start: 0px;
+	 text-align:left;
+	
+	}
+	.xiala li dl a:link  {
+	 color:black;
+	 text-decoration:none;
+	}
+	.xiala li dl a:visited  {
+	 color:black;
+	 text-decoration:none;
+	}
+	.xiala li dl a:hover  {
+	 color:#F3F3F3;
+	 text-decoration:none;
+	 font-weight:normal;
+	 background:#009999;
+	}
 
-.xiala li:hover dl {
- left: auto;
- display:block;
-}
-.xiala li.sfhover dl {
- left: auto;
-}
-.xiala li.sfhover a {
- float:left;
- color : #00FF00;
-}
-#mrc {
- clear: left; 
-}
-
+	.xiala li:hover dl {
+	 left: auto;
+	 display:block;
+	}
+	.right{
+		width: calc(100% - 300px);
+		height: 1000px;
+		float: right;
+		background-color: ;
+		}
+	.righttitle{
+		height: 25px;
+		color: grey;
+		background-color: white;
+		font-size: 10px;
+		padding-left: 30px;
+		padding-top: 10px;
+		}
+	.righttitle a{
+		color: blue;
+		}
+	.text{
+		width: 1000px;
+		margin-top: 30px;
+		margin-left: auto;
+		margin-right: auto;
+		}
+	.search{
+		height: 100px;
+		background-color: white;
+		}
+	.search p{
+		display: block;
+		position: relative;
+		float: left;
+		}
+	.search select{
+		display: block;
+		position: relative;
+		float: left;
+		}
