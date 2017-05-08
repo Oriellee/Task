@@ -1,4 +1,4 @@
-html,div{
+div{
 	border: 1px solid red;
 	}
 	.title{
@@ -146,7 +146,7 @@ html,div{
 		width: calc(100% - 300px);
 		height: 1000px;
 		float: right;
-		background-color: ;
+		background-color: #fff0f5;
 		}
 	.righttitle{
 		height: 25px;
@@ -164,18 +164,87 @@ html,div{
 		margin-top: 30px;
 		margin-left: auto;
 		margin-right: auto;
+		background-color: #fff0f5;
 		}
 	.search{
 		height: 100px;
 		background-color: white;
 		}
-	.search p{
-		display: block;
+	.search div{
 		position: relative;
-		float: left;
+		display: inline-block;
+		vertical-align: middle;
+		margin-top: 20px;
+		margin-left: 30px;
+		width: 150px;
+		height: 50px;
+		}
+	.search p{
+		font-size: 5px;
+		width: 45px;
+		display: inline-block;
+		height: 15px;
+		margin:5px;
+		text-align: right;
+		color: grey;
 		}
 	.search select{
-		display: block;
-		position: relative;
-		float: left;
+		display: inline-block;
 		}
+	.search button{
+		margin-top: 10px;
+		margin-left: 10px;
+		width: 70px;
+		height: 30px;
+		background-color: #4682b4;
+		color: white;
+		}
+
+	.price{
+		height: 100px;
+		margin-top: 10px;
+		}
+
+		.price div{
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		left: 15px;
+		margin-top: 10px;
+		margin-left: 15px;
+		width: 100px;
+		height: 80px;
+		text-align: center;
+		background-color: white;
+			}
+		.price p{
+			font-size: 5px;
+			}
+		.price strong{
+			color: #ffa500;
+			font-size: 20px;
+			}
+		.shuliang{
+			height: 120px;
+			margin-top: 10px;
+			}
+		.shuliang div{
+			width: 220px;
+			height: 60px;
+			margin-left: 15px;
+			margin-top: 10px;
+			display: inline-block;
+			background-color: white;
+			}
+		.shuliang div p{
+			font-size: 5px;
+			margin:0px;
+			display:inline-block;
+			line-height: 20px;
+			position: relative;
+			top: -8px;
+			left: 20px;
+			}
+		.shuliang div p a{
+			color: grey;
+			}
