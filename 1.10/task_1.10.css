@@ -1,0 +1,36 @@
+
+.box{
+	width: calc(100%-40px);
+	display: flex;
+	padding:20px;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+	border: 1px solid red;
+	}
+	.box>div{
+		width: 150px;
+		border: 1px solid red;
+		}
+	.first{
+		height: 120px;
+		}
+	.two{
+		height: 100px;
+		}
+	.three{
+		height: 40px;
+		}
+	.four{
+		height: 200px;
+		border: 1px solid blue;
+		}
+@media screen and (max-width: 640px){
+	.box{
+		justify-content: center;
+		}
+	.four{
+		order: -1;
+		}
+}
