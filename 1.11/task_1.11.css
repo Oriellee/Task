@@ -6,6 +6,7 @@
 		min-width: 100px;
 		background-color: #CCEEFF;
 		margin: 0 auto;
+		padding-bottom: 50px;
 		}
 	.title{
 		height: 50px;
@@ -127,22 +128,72 @@
 	.nav .row p{
 		font-size: 12px;
 		}
-	.container{
+	.part1{
 		background-color: #fff;
-		margin-top: 20px;
+		margin-top: 10px;
 		width: 100%;
 		padding: 10px;
 		}
-	.container p{
-		max-width: 620px;
+	.part1 p{
 		height: 30px;
 		border-bottom: 2px solid #DDDDDD;
 		}
-	.container .row{
+	.part1 .row{
 		width: 100%;
-		margin: 10px 0;
-		display: inline;
+		margin: 30px 0px 0px;
+		display: flex;
 		}
-	.container .row img{
-		max-width: 120px;
+	.part1 .row .col-xs-4{
+		margin: 0;
+		}
+	.part1 .row .col-xs-4 .col-xs-12{
+		height:46%;
+		background-color:#DDDDDD;
+		padding: 0px;
+		}
+	.part1 .row .col-xs-4 img{
+		width: 100%;
+		}
+	.part2{
+		width: 100%;
+		background-color: #fff;
+		margin-top: 10px;
+		padding: 10px;
+		}
+	.part2 .row{
+		width: 100%;
+		display: flex;
+		border-bottom: 1px solid #DDDDDD;
+		margin-top: 5px;
+		}
+	.part2 .row img{
+		width: 100%;
+		}
+	.part2 .row h4{
+		padding: 0px;
+		font-size: 20px;
+		height: 50%;
+		}
+	.part2 .row p{
+		font-size: 12px;
+		color: grey;
+		height: 50%;
+		padding: 0;
+		}
+	.part2 .row3{
+		width: 100%;
+		overflow: hidden;
+		margin-bottom: 20px;
+		}
+	.part2 .row3 h4{
+		padding: 0;
+		}
+	.part2 .row3 .col-xs-12{
+		padding: 0;
+		}
+	.part2 .row3 p{
+		padding: 0px;
+		margin-top: 10px;
+		font-size: 12px;
+		color: grey;
 		}
