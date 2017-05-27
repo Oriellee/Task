@@ -1,12 +1,69 @@
- body{
- 	font-size:62.5%;
- 	font-family:"Microsoft YaHei",Arial; 
- 	overflow-x:hidden; 
- 	overflow-y:auto;
-
- }
-.viewport{ 
-	max-width:640rem;
-	min-width:300rem; 
-	margin:0 auto;
-}
+div{
+	border: 1px solid red;
+	}
+	.viewport{
+		max-width: 640px;
+		min-width: 100px;
+		background-color: #CCEEFF;
+		margin: 0 auto;
+		}
+	.title{
+		height: 50px;
+		background-color: #00BBFF;
+		color: #fff;
+		text-align: center;
+		line-height: 50px;
+		}
+	.title button{
+		float: left;
+		width: 60px;
+		height: 28px;
+		background-color: #00BBFF;
+		color: #fff;
+		font-size: 15px;
+		border: none;
+		outline: none;
+		margin: 0px 15px;
+		}
+	.title button:focus{
+		opacity: 0.7;
+		}
+	.title p{
+		font-size: 20px;
+		margin: 0px 0px 0px -70px;
+		display: inline-block;
+		}
+	.nav{
+		background-color: #fff;
+		}
+	.nav ul:nth-child(1){
+		width: 100%;
+		height: 40px;
+		padding: 0px;
+		margin: 0px;
+		}
+	.nav ul:nth-child(1)>li{
+		float: left;
+		list-style-type: none;
+		width: 20%;
+		height: 40px;
+		text-align: center;
+		line-height: 40px;
+		font-weight: bold;
+		font-size: 15px;
+		color: #444444;
+		}
+	.nav ul:nth-child(1)>li:hover{
+		border-bottom: 4px solid #00BBFF;
+		}
+	.nav ul:nth-child(1) li button{
+		background-color: #fff;
+		border: none;
+		outline: none;
+		height: 30px;
+		}
+	.nav ul:nth-child(1) li button:hover{
+		opacity: 0.7;
+		}
+	.nav ul:nth-child(1) li button:focus{
+		
