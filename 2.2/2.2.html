@@ -8,31 +8,42 @@
 
   <h3>污染城市列表</h3>
   <ul id="aqi-list">
-    <li>第一名：北京，100</li>
-    <li>第二名：上海，10</li>
-    <li>第三名：福州，10</li>
-    <li>第四名：广州，10</li>
-    <li>第五名：成都，10</li>
-    <li>第六名：西安，10</li>
+    <li>第一名：北京-100</li>
+    <li>第二名：上海-70</li>
+    <li>第三名：福州-20</li>
+    <li>第四名：广州-90</li>
+    <li>第五名：成都-50</li>
+    <li>第六名：西安-150</li>
   </ul>
-
+<button>排序</button>
 <script type="text/javascript">
+	var aqiList = document.querySelector("#aqi-list");
+	var li1 = document.querySelectorAll("#aqi-list li");
+	var btn = document.querySelector("button");
+  	var newList =[];
+  	var lastList = [];
+  	for(var i=0;i<li1.length;i++){
+  			var text = li1[i].innerHTML;
+  			newList[i] = text.split("："); 
+  			lastList[i]=newList[i][1].split("-");
+  			lastList.sort(function(a,b){
+	  	 	return b[1]-a[1];
+	  	 });
+  			btn.onclick = function(){
+  				aqiList.innerHTML = "";
+			for(var j=0;j<lastList.length;j++){
+				if(lastList[j][1]>30){
+				var li2 = document.createElement("li");
+  				li2.textContent = "第" +(j+1)+ "名 ：" +lastList[j][0]+"空气污染指数为 ： "+lastList[j][1];
+  				aqiList.appendChild(li2);
+				}	
+			}
+  		}
 
-var aqiData = [
-  ["北京", 90],
-  ["上海", 50],
-  ["福州", 10],
-  ["广州", 50],
-  ["成都", 90],
-  ["西安", 100]
-];
-  /*
-  在注释下方编写代码
-  遍历读取aqiData中各个城市的数据
-  将空气质量指数大于60的城市显示到aqi-list的列表中
-  */
-  
-
+  	}
+  		
+  		
+  		
 </script>
 </body>
 </html>
