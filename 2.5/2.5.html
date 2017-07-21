@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>2.5</title>
+	<style type="text/css">
+		body{
+			min-width: 500px;
+			padding: 20px;
+		}
+		#btn2{
+			margin-right: 20px;
+		}
+		input{
+			margin-right: 20px;
+		}
+		ul{
+			list-style-type: none;
+		}
+		li{
+			float: left;
+			width: 30px;
+			background-color: red;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" placeholder="请输入数字！">
+	<button id="btn1">左侧入</button>
+	<button id="btn2">右侧入</button>
+	<button id="btn3">左侧出</button>
+	<button id="btn4">右侧出</button>
+	<ul>
+		<li>22</li>
+		<li>33</li>
+	</ul>
+
+	<script type="text/javascript">
+		var input1 = document.querySelector("input");
+		var btn1 = document.querySelector("#btn1");
+		var btn2 = document.querySelector("#btn2");
+		var btn3 = document.querySelector("#btn3");
+		var btn4 = document.querySelector("#btn4");
+		var ul = document.querySelector("ul");
+		ul.innerHTML = "";
+		btn1.onclick = function(){
+			btnin("left");
+		}
+		btn2.onclick = function(){
+			btnin("right");
+		}
+		btn3.onclick = function(){
+			btnout("left");
+		}
+		btn4.onclick = function(){
+			btnout("right");
+		}
+		ul.onclick = function(){
+			self(event.target);
+		}
+		function btnin(value){
+			if(input1.value === ""){
+				alert("请输入数字！");
+				input1.focus();
+			}
+			else if(isNaN(input1.value)){
+				alert("只能输入数字！");
+				input1.innerHTML = "";
+				input1.focus();
+			}
+			else{
+				var newNum = document.createElement("li");
+				newNum.textContent = input1.value;
+				if(value === "left"){
+					ul.insertBefore(newNum,ul.firstChild);
+				}
+				else if(value === "right"){
+					ul.appendChild(newNum);
+				}
+			}
+			}
+		function btnout(value){
+			if(ul.innerHTML === ""){
+				alert("已经清空啦！");
+				input1.focus();
+			}
+			else{
+				if(value === "left"){
+					alert("数字 "+ul.firstChild.innerHTML+" 被删除啦！");
+				ul.removeChild(ul.firstChild);
+				}
+				else if(value === "right"){
+					alert("数字 "+ul.lastChild.innerHTML+" 被删除啦！");
+				ul.removeChild(ul.lastChild);
+				}
+				
+			}
+			}
+		function self(value){
+			alert("数字 "+ul.removeChild(value).innerHTML+" 被删除啦！");
+		}
+	</script>
+</body>
+</html>
