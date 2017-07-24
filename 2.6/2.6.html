@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>2.6</title>
+	<style type="text/css">
+		body{
+			width: 600px;
+			margin: 10px auto;
+		}
+		button{
+			width:70px;
+			height: 25px;
+			background-color: #fff;
+			border: 1px solid #FFC0CB;
+
+		}
+		#btn2{
+			margin-right: 20px;
+		}
+		#sou{
+			margin: 20px;
+		}
+		input{
+			border: 1px solid #5F9EA0;
+			height: 20px;
+		}
+		ul{
+			list-style-type: none;
+		}
+		ul li{
+			float: left;
+			margin: 10px;
+			min-width: 40px;
+			height: 40px;
+			border: 1px solid red;
+			color: red;
+			text-align: center;
+			line-height: 40px;
+		}
+
+		textarea{
+			margin: 20px 20px -10px 20px;
+			border: 1px solid #5F9EA0;
+		}
+	</style>
+</head>
+<body>
+	<textarea id="textarea" type="text" placeholder="请输入文字！"></textarea>
+	<button id="btn1">左侧入</button>
+	<button id="btn2">右侧入</button>
+	<button id="btn3">左侧出</button>
+	<button id="btn4">右侧出</button>
+	<input id="sou" type="text" placeholder="搜索">
+	<button id="btn5">检索</button>
+	<ul>
+		<li>20</li>
+		<li>30</li>
+	</ul>
+
+	<script type="text/javascript">
+		var textarea = document.querySelector("#textarea");
+		var btn1 = document.querySelector("#btn1");
+		var btn2 = document.querySelector("#btn2");
+		var btn3 = document.querySelector("#btn3");
+		var btn4 = document.querySelector("#btn4");
+		var ul = document.querySelector("ul");
+		var li = document.querySelectorAll("ul li");
+		var input = document.querySelector("input");
+		var btn5 = document.querySelector("#btn5");
+		ul.innerHTML = "";
+		btn1.onclick = function(){
+			btnin("left");
+		}
+		btn2.onclick = function(){
+			btnin("right");
+		}
+		btn3.onclick = function(){
+			btnout("left");
+		}
+		btn4.onclick = function(){
+			btnout("right");
+		}
+		ul.onclick = function(){
+			self(event.target);
+		}
+		btn5.onclick = function(){
+			sou();
+		}
+		function btnin(value){
+			if(textarea.value === ""){
+				alert("请输入文字！");
+				textarea.focus();
+				}
+			else{
+				var splitList =  textarea.value.split(/[,. `!@#$%^\&*;:\r\'\"\\\n\t\f，。；：‘‘“”~！@#￥%……&*、||]/);
+				for(var z = 0;z<splitList.length;z++){
+					var newNum = document.createElement("li");
+					newNum.textContent = splitList[z];
+					if(value === "left"){
+						ul.insertBefore(newNum,ul.firstChild);
+						}
+					else if(value === "right"){
+						ul.appendChild(newNum);
+						}
+					}
+					}
+				
+			textarea.value = "";
+			textarea.focus();
+			}
+		function btnout(value){
+			if(ul.innerHTML === ""){
+				alert("已经被清空啦！！！");
+				textarea.focus();
+				}
+			else{
+				if(value === "left"){
+					alert(+ul.firstChild.innerHTML+" 被删除啦！");
+					ul.removeChild(ul.firstChild);
+					}
+				else if(value === "right"){
+					alert(+ul.lastChild.innerHTML+" 被删除啦！");
+					ul.removeChild(ul.lastChild);
+				}
+				}
+				textarea.value = "";
+				textarea.focus();
+			}
+		function self(value){
+			alert(+ul.removeChild(value).innerHTML+" 被删除啦！");
+			textarea.value = "";
+			textarea.focus();
+		}
+		function sou(){
+			var text=[];
+			var newList = document.querySelectorAll("li");
+			if(ul.innerHTML === ""){
+				alert("当前列表为空！");
+				}
+			else{
+				for(var i=0;i<newList.length;i++){
+				text = newList[i].innerHTML;
+				if(text.indexOf(input.value)>-1){
+					newList[i].style.backgroundColor = "#FA8072";
+				}
+				else{
+					newList[i].style.backgroundColor = "#fff";
+				}
+			}
+			input.innerHTML = "";　
+			input.focus();
+			}
+			
+		}
+	</script>
+</body>
+</html>
