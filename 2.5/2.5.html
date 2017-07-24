@@ -47,6 +47,7 @@
 		var btn4 = document.querySelector("#btn4");
 		var btn5 = document.querySelector("#btn5");
 		var ul = document.querySelector("ul");
+		//定义元素。
 		ul.innerHTML = "";
 		btn1.onclick = function(){
 			btnin("left");
@@ -66,6 +67,7 @@
 		btn5.onclick = function(){
 			pai();
 		}
+		//设置按钮监听器。
 		function btnin(value){
 			if(input1.value === ""){
 				alert("请输入数字！");
@@ -98,6 +100,7 @@
 			input1.value = "";
 			input1.focus();
 			}
+			//判断传入的函数为左右后，新建元素li，且定义li的值。
 		function btnout(value){
 			if(ul.innerHTML === ""){
 				alert("已经清空啦！");
@@ -115,10 +118,11 @@
 				
 			}
 			}
+			//判断所点击的按钮，删除对应的li。
 		function self(value){
 			alert("数字 "+ul.removeChild(value).innerHTML+" 被删除啦！");
 		}
-
+		//点击传回函数本身，然后使用父辈移除子辈元素。
 		function pai(){
 			var newLi = document.querySelectorAll("li");
 			var data = [];
@@ -136,7 +140,9 @@
 			}
 			return newLi;
 		}
-
+		//新建一个数组为所有当前页面li的文本内容。
+		//数组排序。
+		//for循环，使新建的li元素的值等于数组中的值。最后返回li。
 			
 				
 	</script>
