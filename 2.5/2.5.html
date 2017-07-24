@@ -7,6 +7,7 @@
 		body{
 			min-width: 500px;
 			padding: 20px;
+
 		}
 		#btn2{
 			margin-right: 20px;
@@ -21,6 +22,7 @@
 			float: left;
 			width: 30px;
 			background-color: red;
+			text-align: center;
 			margin: 10px;
 		}
 	</style>
@@ -31,6 +33,7 @@
 	<button id="btn2">右侧入</button>
 	<button id="btn3">左侧出</button>
 	<button id="btn4">右侧出</button>
+	<button id="btn5">排序</button>
 	<ul>
 		<li>22</li>
 		<li>33</li>
@@ -42,6 +45,7 @@
 		var btn2 = document.querySelector("#btn2");
 		var btn3 = document.querySelector("#btn3");
 		var btn4 = document.querySelector("#btn4");
+		var btn5 = document.querySelector("#btn5");
 		var ul = document.querySelector("ul");
 		ul.innerHTML = "";
 		btn1.onclick = function(){
@@ -59,26 +63,40 @@
 		ul.onclick = function(){
 			self(event.target);
 		}
+		btn5.onclick = function(){
+			pai();
+		}
 		function btnin(value){
 			if(input1.value === ""){
 				alert("请输入数字！");
-				input1.focus();
 			}
 			else if(isNaN(input1.value)){
 				alert("只能输入数字！");
-				input1.innerHTML = "";
-				input1.focus();
+			}
+			else if(input1.value<10||input1.value>100){
+				alert("只能输入10~100的数字！");
 			}
 			else{
-				var newNum = document.createElement("li");
-				newNum.textContent = input1.value;
-				if(value === "left"){
-					ul.insertBefore(newNum,ul.firstChild);
+				li = document.querySelectorAll("li");
+				if(li.length<60){
+					var newNum = document.createElement("li");
+					newNum.style.height = input1.value+"px";
+					newNum.style.marginTop = 100-input1.value+"px";
+					newNum.textContent = input1.value;
+					
+					if(value === "left"){
+						ul.insertBefore(newNum,ul.firstChild);
+						}
+					else if(value === "right"){
+						ul.appendChild(newNum);
+						}
+					}
+				else{
+					alert("最多只能添加60个数字！");
+					}
 				}
-				else if(value === "right"){
-					ul.appendChild(newNum);
-				}
-			}
+			input1.value = "";
+			input1.focus();
 			}
 		function btnout(value){
 			if(ul.innerHTML === ""){
@@ -100,6 +118,27 @@
 		function self(value){
 			alert("数字 "+ul.removeChild(value).innerHTML+" 被删除啦！");
 		}
+
+		function pai(){
+			var newLi = document.querySelectorAll("li");
+			var data = [];
+			for(var i=0;i<newLi.length;i++){
+				var temp = newLi[i].innerHTML;
+				data.push(temp);
+			}
+			data.sort(function(a,b){
+				return a-b;
+			});
+			for(var j=0;j<data.length;j++){
+				newLi[j].innerHTML = data[j];
+				newLi[j].style.height = data[j]+"px";
+				newLi[j].style.marginTop = 100-data[j]+"px";
+			}
+			return newLi;
+		}
+
+			
+				
 	</script>
 </body>
 </html>
