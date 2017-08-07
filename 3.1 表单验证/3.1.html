@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>3.1表单验证</title>
+	<link rel="stylesheet" type="text/css" href="E:\Github\Task\1.8\bootstrap\css\bootstrap.min.css">
+	<style type="text/css">
+		div{
+			width: 400px;
+			height: 40px;
+			margin: 50px auto;
+			font-size: 20px;
+			font-weight: bold;
+			line-height: 40px;
+		}
+		#textname{
+			width: 250px;
+			height: 30px;
+			margin: 0 10px;
+			outline: none;
+		}
+		p{
+			display: block;
+			margin-left: 70px;
+			font-size: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div>名称 :
+	<input type="text" id="textname">
+	<button class="btn btn-primary" type="submit">验证</button>
+	<p></p>
+	</div>
+	<script type="text/javascript">
+		var textname = document.querySelector("#textname");
+		var btn = document.querySelector(".btn");
+		var p = document.querySelector("p");
+
+    	function containSpecial(s) { 
+    		var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#) (\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=) (\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/) (\<)(\>)(\?)(\)]+/); 
+    		return (containSpecial.test(s)); 
+    	}
+    	//正则表达式调用.test函数判断是否包含该内容，若是返回true ，否则返回false。
+    	function strlen(str){
+		    var len = 0;
+		    for (var i=0; i<str.length; i++) { 
+		     var c = str.charCodeAt(i); 
+		    //单字节加1 
+		     if ((c >= 0x0001 && c <= 0x007e) || (0xff60<=c && c<=0xff9f))    { 
+		       len++; 
+		     } 
+		     else { 
+		      len+=2; 
+		     } 
+		    } 
+		    return len;
+		}
+		//判断输入的字符串为英文还是中文。
+		btn.onclick = function(){
+			p.innerHTML = "";
+			var newtext = textname.value;
+			var newnum = strlen(newtext);
+			if(newtext == ""||newnum<4||newnum>16){
+				p.innerHTML = "必填，长度为4~16个字符";
+				p.style.color = "grey";
+				textname.style.border = "1px solid red";
+				textname.focus();
+				textname.value = "";
+			}
+			else if(containSpecial(newtext) === true){
+				p.innerHTML = "不能填写特殊字符！";
+				textname.style.border = "1px solid red";
+				p.style.color = "red";
+			}
+			else{
+				p.innerHTML = "名称格式正确！";
+				p.style.color = "green";
+				textname.style.border = "1px solid green";
+			}
+		}
+	</script>
+</body>
+</html>
