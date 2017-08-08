@@ -37,46 +37,37 @@
 	<div class="box">
 		<div class="name">
 			<label>名称 ： </label>
-			<input type="text" class="nameInput">
-			<p class="nameText"></p>
+			<input type="text" id="nameInput">
+			<p id="nameText"></p>
 		</div>
 		<div class="password">
 			<label>密码 ： </label>
-			<input type="password" class="passwordInput">
-			<p class="passwordText"></p>
+			<input type="password" id="passwordInput">
+			<p id="passwordText"></p>
 		</div>
 		<div class="again">
 			<label>密码 ： </label>
-			<input type="password" class="againInput">
-			<p class="againText"></p>
+			<input type="password" id="againInput">
+			<p id="againText"></p>
 		</div>
 		<div class="mail">
 			<label>邮箱 ： </label>
-			<input type="email" class="mailInput">
-			<p class="mailText"></p>
+			<input type="email" id="mailInput">
+			<p id="mailText"></p>
 		</div>
 		<div class="number">
 			<label>手机号 ： </label>
-			<input type="text" class="numberInput">
-			<p class="numberText"></p>
+			<input type="text" id="numberInput">
+			<p id="numberText"></p>
 		</div>
-		<button class="btn btn-primary">提交</button>
+		<button id="btn" class="btn btn-primary">提交</button>
 	</div>
 
 	<script type="text/javascript">
-		var nameInput = document.querySelector(".nameInput");
-		var nameText = document.querySelector(".nameText");
-		var passwordInput = document.querySelector(".passwordInput");
-		var passwordText = document.querySelector(".passwordText");
-		var againInput = document.querySelector(".againInput");
-		var againText = document.querySelector(".againText");
-		var mailInput = document.querySelector(".mailInput");
-		var mailText = document.querySelector(".mailText");
-		var numberInput = document.querySelector(".numberInput");
-		var numberText = document.querySelector(".numberText");
-
-		var btn = document.querySelector(".btn");
-
+		 var $ = function(id){
+        return document.getElementById(id);
+    }
+    	//根据id获取对象。
 		var checknum1 = 0;//判断参量
 		var checknum2 = 0;
 		var checknum3 = 0;
@@ -96,60 +87,71 @@
 		    } 
 		    return len;
 		}
+		//判断汉字和英文字符的个数。
 		function containSpecial(s) { 
     		var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#) (\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=) (\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/) (\<)(\>)(\?)(\)]+/); 
     		return (containSpecial.test(s)); 
     	}
+    	//判断字符串中是否含有特殊符号。
     	function email(mail){
     		var email= /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;  
 		          return (email.test(mail));  
     	}
+    	//根据正则表达式判断邮箱号。
     	function phonenumber(phone){
     		var phonenumber=/(^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$)|(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/;
 			    return (phonenumber.test(phone));
     	}
+    	//根据正则表达式判断手机号码。
+    	function onfocusColor(self,selfText){
+    			selfText.style.color = "grey";
+				self.style.border = "1px solid grey";
+    		}
+    	//文字和边框颜色变为灰色。
+    	function onblurRed(self,selfText){
+    			selfText.style.color = "red";
+				self.style.border = "1px solid red";
+    		}
+    	//文字和边框颜色变为红色。
+    	function onblurGreen(self,selfText){
+    			selfText.style.color = "green";
+				self.style.border = "1px solid green";
+    		}
+    	//文字和边框颜色变为绿色。
 		nameInput.onfocus = function(){
 			nameText.innerHTML = "必填，长度为4~16位字符";
-			nameText.style.color = "grey";
-			nameInput.style.border = "1px solid grey";
+			onfocusColor(event.target,nameText);
 		}
 		passwordInput.onfocus = function(){
 			passwordText.innerHTML = "请填写密码";
-			passwordText.style.color = "grey";
-			passwordInput.style.border = "1px solid grey";
+			onfocusColor(event.target,passwordText);
 		}
 		againInput.onfocus = function(){
 			againText.innerHTML = "请再次输入密码";
-			againText.style.color = "grey";
-			againInput.style.border = "1px solid grey";
+			onfocusColor(event.target,againText);
 		}
 		mailInput.onfocus = function(){
 			mailText.innerHTML = "请填写邮箱账号";
-			mailText.style.color = "grey";
-			mailInput.style.border = "1px solid grey";
+			onfocusColor(event.target,mailText);
 		}
 		numberInput.onfocus = function(){
 			numberText.innerHTML = "请填写手机号码";
-			numberText.style.color = "grey";
-			numberInput.style.border = "1px solid grey";
+			onfocusColor(event.target,numberText);
 		}
+		//点击输入框时。
 		nameInput.onblur = function(){
 			if(nameInput.value == ""){
 				nameText.innerHTML = "名称不能为空！";
-				nameText.style.color = "red";
-				nameInput.style.border = "1px solid red";
+				onblurRed(event.target,nameText);
 			}else if(strlen(nameInput.value)<4||strlen(nameInput.value)>16){
 				nameText.innerHTML = "长度为4~16位字符!";
-				nameText.style.color = "red";
-				nameInput.style.border = "1px solid red";
+				onblurRed(event.target,nameText);
 			}else if(containSpecial(nameInput.value)){
 				nameText.innerHTML = "不能输入特殊字符！";
-				nameText.style.color = "red";
-				nameInput.style.border = "1px solid red";
+				onblurRed(event.target,nameText);
 			}else{
 				nameText.innerHTML = "名称正确";
-				nameText.style.color = "green";
-				nameInput.style.border = "1px solid green";
+				onblurGreen(event.target,nameText);
 				checknum1 = 1;
 			}
 			
@@ -157,20 +159,16 @@
 		passwordInput.onblur = function(){
 		if(passwordInput.value == ""){
 				passwordText.innerHTML = "密码不能为空！";
-				passwordText.style.color = "red";
-				passwordInput.style.border = "1px solid red";
+				onblurRed(event.target,passwordText);
 			}else if(strlen(passwordInput.value)<6||strlen(passwordInput.value)>16){
 				passwordText.innerHTML = "长度6~16位字符!";
-				passwordText.style.color = "red";
-				passwordInput.style.border = "1px solid red";
+				onblurRed(event.target,passwordText);
 			}else if(containSpecial(passwordInput.value)){
 				passwordText.innerHTML = "不能输入特殊字符！";
-				passwordText.style.color = "red";
-				passwordInput.style.border = "1px solid red";
+				onblurRed(event.target,passwordText);
 			}else{
 				passwordText.innerHTML = "密码格式正确";
-				passwordText.style.color = "green";
-				passwordInput.style.border = "1px solid green";
+				onblurGreen(event.target,passwordText);
 				checknum2 = 1;
 			}
 			
@@ -178,25 +176,20 @@
 		againInput.onblur = function(){
 			if(againInput.value == ""){
 				againText.innerHTML = "请再次输入密码！";
-				againText.style.color = "red";
-				againInput.style.border = "1px solid red";
+				onblurRed(event.target,againText);
 			}else if(strlen(againInput.value)<4||strlen(againInput.value)>16){
 				againText.innerHTML = "长度为4~16位字符!";
-				againText.style.color = "red";
-				againInput.style.border = "1px solid red";
+				onblurRed(event.target,againText);
 			}else if(containSpecial(againInput.value)){
 				againText.innerHTML = "不能输入特殊字符！";
-				againText.style.color = "red";
-				againInput.style.border = "1px solid red";
+				onblurRed(event.target,againText);
 			}else if(againInput.value !== passwordInput.value){
 				againText.innerHTML = "两次密码不相同！";
-				againText.style.color = "red";
-				againInput.style.border = "1px solid red";
+				onblurRed(event.target,againText);
 			}
 			else{
 				againText.innerHTML = "密码正确";
-				againText.style.color = "green";
-				againInput.style.border = "1px solid green";
+				onblurGreen(event.target,againText);
 				checknum3 = 1;
 			}
 			
@@ -204,16 +197,13 @@
 		mailInput.onblur = function(){
 			if(mailInput.value == ""){
 				mailText.innerHTML = "邮箱不能为空！";
-				mailText.style.color = "red";
-				mailInput.style.border = "1px solid red";
+				onblurRed(event.target,mailText);
 			}else if(!(email(mailInput.value))){
 				mailText.innerHTML = "邮箱格式有误！";
-				mailText.style.color = "red";
-				mailInput.style.border = "1px solid red";
+				onblurRed(event.target,mailText);
 			}else{
 				mailText.innerHTML = "邮箱格式正确";
-				mailText.style.color = "green";
-				mailInput.style.border = "1px solid green";
+				onblurGreen(event.target,mailText);
 				checknum4 = 1;
 			}
 			
@@ -222,21 +212,18 @@
 			console.log(phonenumber(numberInput.value));
 			if(numberInput.value == ""){
 				numberText.innerHTML = "手机号码不能为空！";
-				numberText.style.color = "red";
-				numberInput.style.border = "1px solid red";
+				onblurRed(event.target,numberText);
 			}else if(!(phonenumber(numberInput.value))){
 				numberText.innerHTML = "手机号码格式有误！";
-				numberText.style.color = "red";
-				numberInput.style.border = "1px solid red";
+				onblurRed(event.target,numberText);
 			}else{
 				numberText.innerHTML = "手机号码格式正确";
-				numberText.style.color = "green";
-				numberInput.style.border = "1px solid green";
+				onblurGreen(event.target,numberText);
 				checknum5 = 1;
 			}
 			
 		}
-		
+		//输入框失去焦点时。
 			
 		btn.onclick = function(){
 			if(checknum1,checknum2,checknum3,checknum4,checknum5==1){
@@ -244,8 +231,8 @@
 			}else{
 				alert("提交失败！");
 			}
-			
 		}
+		//点击按钮判断输入框是否都输入正确。
 	</script>
 </body>
 </html>

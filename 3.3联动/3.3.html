@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>3.3</title>
+	<style type="text/css">
+		#box{
+			width: 500px;
+			height: 500px;
+			border:1px solid red;
+			margin: 50px auto;
+			padding: 30px;
+			text-align: center;
+			font-size: 15px;
+			font-weight: bold;
+			color: #008080;
+		}
+		#box #student,#worker{
+			margin: 20px 0px 0px 50px;
+			
+		}
+		#school{
+			margin-top: 30px;
+		}
+		#school select{
+			height: 28px;
+			border-radius: 5px;
+			border: 1px solid #A9A9A9;
+			color: #008080;
+		}
+		#bj,#sh,#gz{
+			width: 200px;
+			margin-left: 20px;
+		}
+		#sh,#gz{
+			display: none;
+		}
+		#area{
+			width: 100px;
+		}
+		#company{
+			margin: 30px;
+			display: none;
+		}
+		#company input{
+			width: 300px;
+			height: 25px;
+			border-radius: 5px;
+			border: 1px solid #A9A9A9;
+			color: #008080;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<input type="radio" id="student">在校生
+		<input type="radio" id="worker">非在校生
+		<div id="school">
+			<label>学校 : </label>
+			<select id="area">
+				<option grade="1" value="1">北京</option>
+		        <option grade="2" value="2">上海</option>
+		        <option grade="3" value="3">广州</option>
+			</select>
+			 <select name="school" id="bj">
+		        <option value="">北京大学</option>
+		        <option value="">北京中学</option>
+		        <option value="">北京小学</option>
+		    </select>
+		    <select name="school" id="sh">
+		        <option value="">上海大学</option>
+		        <option value="">上海中学</option>
+		        <option value="">上海小学</option>
+		    </select>
+		    <select name="school" id="gz">
+		        <option value="">广州大学</option>
+		        <option value="">广州中学</option>
+		        <option value="">广州小学</option>
+		    </select>
+		</div> 
+		<div id="company">
+			<label>就业单位 : </label>
+			<input type="text" placeholder="请输入工作单位。">
+		</div>
+		
+	</div>
+</body>
+</html>
