@@ -8,7 +8,6 @@
 		.box{
 			width: 480px;
 			height: 500px;
-			border: 1px solid red;
 			text-align: right;
 			padding:30px;
 			margin: 30px auto;
@@ -78,6 +77,11 @@
 
 		var btn = document.querySelector(".btn");
 
+		var checknum1 = 0;//判断参量
+		var checknum2 = 0;
+		var checknum3 = 0;
+		var checknum4 = 0;
+		var checknum5 = 0;
 		function strlen(str){
 		    var len = 0;
 		    for (var i=0; i<str.length; i++) { 
@@ -101,28 +105,33 @@
 		          return (email.test(mail));  
     	}
     	function phonenumber(phone){
-    		var phonenumber=/^1(3|4|5|7|8)\d{9}$/;
-			    if(!(phonenumber.test(phone))){
-			        return false;
-			    }
-			    else{
-			    	return true;
-			    }
+    		var phonenumber=/(^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$)|(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/;
+			    return (phonenumber.test(phone));
     	}
 		nameInput.onfocus = function(){
 			nameText.innerHTML = "必填，长度为4~16位字符";
+			nameText.style.color = "grey";
+			nameInput.style.border = "1px solid grey";
 		}
 		passwordInput.onfocus = function(){
 			passwordText.innerHTML = "请填写密码";
+			passwordText.style.color = "grey";
+			passwordInput.style.border = "1px solid grey";
 		}
 		againInput.onfocus = function(){
 			againText.innerHTML = "请再次输入密码";
+			againText.style.color = "grey";
+			againInput.style.border = "1px solid grey";
 		}
 		mailInput.onfocus = function(){
 			mailText.innerHTML = "请填写邮箱账号";
+			mailText.style.color = "grey";
+			mailInput.style.border = "1px solid grey";
 		}
 		numberInput.onfocus = function(){
 			numberText.innerHTML = "请填写手机号码";
+			numberText.style.color = "grey";
+			numberInput.style.border = "1px solid grey";
 		}
 		nameInput.onblur = function(){
 			if(nameInput.value == ""){
@@ -141,6 +150,7 @@
 				nameText.innerHTML = "名称正确";
 				nameText.style.color = "green";
 				nameInput.style.border = "1px solid green";
+				checknum1 = 1;
 			}
 			
 		}
@@ -161,6 +171,7 @@
 				passwordText.innerHTML = "密码格式正确";
 				passwordText.style.color = "green";
 				passwordInput.style.border = "1px solid green";
+				checknum2 = 1;
 			}
 			
 		}
@@ -186,6 +197,7 @@
 				againText.innerHTML = "密码正确";
 				againText.style.color = "green";
 				againInput.style.border = "1px solid green";
+				checknum3 = 1;
 			}
 			
 		}
@@ -202,24 +214,36 @@
 				mailText.innerHTML = "邮箱格式正确";
 				mailText.style.color = "green";
 				mailInput.style.border = "1px solid green";
+				checknum4 = 1;
 			}
 			
 		}
 		numberInput.onblur = function(){
-			console.log(phonenumber(numberInput));
-			// if(numberInput.value == ""){
-			// 	numberText.innerHTML = "手机号码不能为空！";
-			// 	numberText.style.color = "red";
-			// 	numberInput.style.border = "1px solid red";
-			// }else if(!(phonenumber(numberInput))){
-			// 	numberText.innerHTML = "手机号码格式有误！";
-			// 	numberText.style.color = "red";
-			// 	numberInput.style.border = "1px solid red";
-			// }else{
-			// 	numberText.innerHTML = "手机号码格式正确";
-			// 	numberText.style.color = "green";
-			// 	numberInput.style.border = "1px solid green";
-			// }
+			console.log(phonenumber(numberInput.value));
+			if(numberInput.value == ""){
+				numberText.innerHTML = "手机号码不能为空！";
+				numberText.style.color = "red";
+				numberInput.style.border = "1px solid red";
+			}else if(!(phonenumber(numberInput.value))){
+				numberText.innerHTML = "手机号码格式有误！";
+				numberText.style.color = "red";
+				numberInput.style.border = "1px solid red";
+			}else{
+				numberText.innerHTML = "手机号码格式正确";
+				numberText.style.color = "green";
+				numberInput.style.border = "1px solid green";
+				checknum5 = 1;
+			}
+			
+		}
+		
+			
+		btn.onclick = function(){
+			if(checknum1,checknum2,checknum3,checknum4,checknum5==1){
+				alert("提交成功！");
+			}else{
+				alert("提交失败！");
+			}
 			
 		}
 	</script>
