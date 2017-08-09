@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>2.8</title>
+	<style type="text/css">
+	body{
+		text-align: center;
+	}
+		#box{
+			width: 90%;
+	 		height: 300px;
+	 		margin: 50px auto;
+		}
+		div{
+			border: 1px solid black;
+			display: flex;
+	 		flex-flow: column wrap;
+	 		justify-content: space-around;
+	 		align-self: center;
+			width: 30%;
+			height: 70%;
+		}
+		section{
+			margin: 10px;
+		}
+		button{
+			width: 90px;
+	 		height: 30px;
+	 		border-radius: 5px;
+	 		border: 1px solid #A9A9A9;
+	 		background-color: #A9A9A9;
+	 		outline: none;
+		}
+		button:focus{
+	 		background-color: #FFDAB9;
+	 	}
+		@media screen and (max-width: 760px){
+			#box{
+				height: 800px;
+				width: 90%;
+			}
+			div{
+				width: 70%;
+				height: 30%;
+			}
+			section{
+				width: 100px;
+				margin: 10px auto;
+			}
+			section button{
+				margin: 5px;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div>
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div>
+				<div></div>
+			</div>
+			<div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<div>
+			<div>
+				<div></div>
+				<div></div>
+			</div>
+			<div></div>
+		</div>
+		<div>
+			<div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<section>
+		<button id="before">先序遍历</button>
+		<button id="center">中序遍历</button>
+		<button id="behind">后序遍历</button>
+	</section>
+	<input type="text">
+	<section>
+		<button id="beforesearch">先序搜索</button>
+		<button id="centersearch">中序搜索</button>
+		<button id="behindsearch">后序搜索</button>
+	</section>
+</body>
+</html>

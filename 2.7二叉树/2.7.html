@@ -1,0 +1,149 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<title>2.7</title>
+ 	<style type="text/css">
+	 	#box,div{
+	 		margin: 0;
+	 		padding:0;
+	 		border: 2px solid black;
+	 	}
+	 	#box{
+	 		width: 90%;
+	 		height: 300px;
+	 		margin: 50px auto;
+	 	}
+	 	div{
+	 		display: flex;
+	 		flex-flow: row wrap;
+	 		justify-content: space-around;
+	 		align-self: center;
+	 		width: 40%;
+	 		height: 80%;
+	 	}
+	 	#btn{
+	 		text-align: center;
+	 		margin: 20px;
+	 		border:none;
+	 	}
+	 	#btn button{
+	 		width: 90px;
+	 		height: 30px;
+	 		border-radius: 5px;
+	 		border: 1px solid #A9A9A9;
+	 		background-color: #A9A9A9;
+	 		outline: none;
+	 	}
+	 	#btn button:focus{
+	 		background-color: #FFDAB9;
+	 	}
+@media screen and (max-width: 700px){
+	 		#btn{
+	 			width: 150px;
+	 			margin: 20px auto;
+	 		}
+	 		#btn button{
+	 			margin: 10px;
+	 		}
+	 	}
+ 	</style>
+ </head>
+ <body>
+ 	<div id="box">
+ 		<div>
+ 			<div>
+ 				<div></div>
+ 				<div></div>
+ 			</div>
+ 			<div>
+ 				<div></div>
+ 				<div></div>
+ 			</div>
+ 		</div>
+ 		<div>
+ 			<div>
+ 				<div></div>
+ 				<div></div>
+ 			</div>
+ 			<div>
+ 				<div></div>
+ 				<div></div>
+ 			</div>
+ 		</div>
+ 	</div>
+ 	<section id="btn">
+ 		<button id="before">先序遍历</button>
+ 		<button id="center">中序遍历</button>
+ 		<button id="behind">后序遍历</button>
+ 	</section>
+ 	<script type="text/javascript">
+ 		var $ = function(id){
+ 			return document.getEventById(id);
+ 		}
+ 		var order = [];
+ 		var timer = null;
+
+ 		function beforeShow(node){
+ 			if(node!=null){
+ 				order.push(node);
+ 				beforeShow(node.firstElementChild);
+ 				beforeShow(node.lastElementChild);
+ 			}
+ 		}
+ 		function centerShow(node){
+ 			if(node!=null){
+ 				centerShow(node.firstElementChild);
+ 				order.push(node);
+ 				centerShow(node.lastElementChild);
+ 			}
+ 		}
+ 		function behindShow(node){
+ 			if(node!=null){
+ 				behindShow(node.firstElementChild);
+ 				behindShow(node.lastElementChild);
+ 				order.push(node);
+ 			}
+ 		}
+ 		function changeColor(){
+ 			var i = 0;
+ 			order[i].style.backgroundColor = "#1E90FF";
+ 			timer = setInterval(function(){
+ 				i++;
+ 				if(i<order.length){
+ 					order[i-1].style.backgroundColor = "#fff";
+ 					order[i].style.backgroundColor ="#1E90FF";
+ 				}else{
+ 					clearInterval(timer);
+ 					order[order.length-1].style.backgroundColor = "#fff";
+ 				}
+ 			},500);
+ 		}
+ 		function run(){
+ 			order = [];
+ 			clearInterval(timer);
+ 			var divList = document.querySelectorAll("div");
+ 			for(var i=0;i<divList.length;i++){
+ 			 	divList[i].style.backgroundColor = "#fff";
+ 			 }
+ 		}
+ 		before.onclick = function(){
+ 			run();
+ 			beforeShow(box);
+ 			changeColor();
+ 			console.log(order);
+
+ 		}
+ 		center.onclick = function(){
+ 			run();
+ 			centerShow(box);
+ 			changeColor();
+ 		}
+ 		behind.onclick = function(){
+ 			run();
+ 			behindShow(box);
+ 			changeColor();
+ 		}
+ 	</script>
+ </body>
+ </html>
