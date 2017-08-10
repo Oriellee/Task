@@ -103,8 +103,6 @@
 			</div>&nbsp;
 		</div>
 	</div>
-	
-
 	<script type="text/javascript">
 		var $ = function(id){
 			return document.getElementById(id);
@@ -112,80 +110,28 @@
 		var list = [];
 		var timer = null;
 
-		function beforeshow(node){
+		function beforeShow(node){
 			if(node != null){
 				list.push(node);
-				for(var i = 0;i<node.children.length;i++){
-					beforeshow(node.children[i]);
+				for(var i = 0;i<list.length;i++){
+					beforeShow(node.children[i]);
 				}
 			}
 		}
-		function behindshow(node){
-			if(node != null){
-				list.push(node); 
-				behindshow(node.nextElementSibling);
+		function behindShow(node){
+			if(node!=null){
+				list.push(node);
+				behindShow(node.nextElementSibling);
 				node = list[index++];
-				behindshow(node.firstElementChild);
+				behindShow(node.firstElementChild);
 			}
 		}
 		function changeColor(txt){
 			var i = 0;
-			if(list[i].firstChild.nodeValue.replace(/(^\s*)|(\s*$)/g,"") == txt){
-				list[i].style.backgroundColor = "red";
-			}else{
-				list[i].style.backgroundColor = "#1E90FF";
-				timer = setInterval(function(){
-				i++;
-				if(i<list.length){
-					list[i-1].style.backgroundColor = "#fff";
-					if(list[i].firstChild.nodeValue.replace(/(^\s*)|(\s*$)/g,"") == txt){
-						list[i].style.backgroundColor = "red";
-						clearInterval(timer);
-					}else{
-						list[i].style.backgroundColor = "#1E90FF";
-					}
-				}else {
-					clearInterval(timer);
-					list[list.length-1].style.backgroundColor = "#fff";
-					if(txt !=null){
-						alert("未搜索到该字符！");
-					}
-				}
-			},500);
-			}
-			
-		}
-		function stop(){
-			index = 0;
-			list = [];
-			clearInterval(timer);
-			var divList = document.querySelectorAll("div");
-			for(var i=0;i<divList.length;i++){
-				divList[i].style.backgroundColor = "#fff";
-			}
-		}
-		before.onclick = function(){
-			stop();
-			beforeshow(box);
-			changeColor();
-		}
-		behind.onclick = function(){
-			stop();
-			behindshow(box);
-			changeColor();
-		}
-		beforesearch.onclick = function(){
-			var inputText = input.value;
-			stop();
-			beforeshow(box);
-			changeColor(inputText);
-		}
-		behindsearch.onclick = function(){
-			var inputText = input.value;
-			stop();
-			behindshow(box);
-			changeColor(inputText);
+			if()
 		}
 	</script>
+
+	
 </body>
 </html>
