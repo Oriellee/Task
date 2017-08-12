@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>3.4</title>
+	<style type="text/css">
+	#box{
+		width: 500px;
+		height: 550px;
+		margin: 20px auto;
+		text-align: center;
+	}
+	table{
+		width: 400px;
+		height: 400px;
+		margin: 20px auto;
+		border-spacing: 0;
+	}
+	tr,td,th{
+		width: 30px;
+		height: 30px;
+		padding:0;
+	}
+	tr,td{
+		border: 1px solid #008080;
+	}
+	button{
+		width: 70px;
+		height: 25px;
+		background-color: #DCDCDC;
+		outline: none;
+		border-radius: 5px;
+	}
+	button:focus{
+		background-color: #F08080;
+	}
+	.up,.down{
+		width: 100%;
+		height: 10px;
+		border:none;
+		background: blue; 
+	}
+	.right{
+		width: 10px;
+		height: 100%;
+		float: right;
+		border:none;
+		background: blue; 
+	}
+	.left{
+		width: 10px;
+		height: 100%;
+		float: left;
+		border:none;
+		background: blue; 
+	}
+
+	</style>
+	
+</head>
+<body>
+	<div id="box">
+		<table>
+			<tr>
+				<th></th>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+				<th>5</th>
+				<th>6</th>
+				<th>7</th>
+				<th>8</th>
+				<th>9</th>
+				<th>10</th>
+				
+			</tr>
+			<tr>
+				<th>1</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>2</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>3</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>4</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>5</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>6</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>7</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>8</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>9</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>10</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<div id="blue"></div>
+		<section>
+			<button id="open1">开始</button>
+			<input type="text" id="input">
+			<button id="btn">执行</button>
+		</section>
+	</div>
+	<script>
+		var $ = function(id){
+			return document.getElementById(id);
+		}	
+		var td = document.querySelectorAll("td");	
+		var top = 0;
+
+		function random(min,max){
+			var num = Math.floor(Math.random()*(max-min)+min);
+			return num;
+		}
+		function stop(){
+			for(var i=0;i<td.length;i++){
+				var a = td[i];
+				a.style.backgroundColor = "#fff";
+				a.innerHTML = "";
+			}
+		}
+		function newDiv(newDiv,parents,classname,verticalAlign){
+			var newDiv = document.createElement("div");
+			parents.appendChild(newDiv);
+			parents.style.verticalAlign = "";
+			newDiv.className = classname;
+			parents.style.verticalAlign = verticalAlign;
+		}
+		open1.onclick = function(){
+			var number = random(0,100);
+			stop();
+			td[number].style.backgroundColor = "#FF0000";
+			newDiv(newDiv,td[number],"down","top");
+			goOn(number,newDiv);
+			console.log(newDiv);
+		}
+		function goOn(value,value2){
+			btn.onclick = function(){
+			if(input.value =="go"||input.value =="bottom"||input.value =="right"||input.value =="top"){
+				if(value2.className == "up"){
+					if(value>10){
+					stop();
+					td[value-10].style.backgroundColor = "#FF0000";
+					newDiv(newDiv,td[value-10],"up","top")
+					value-=10;
+					}else{
+						alert("走到世界的尽头啦！");
+					}
+				}else if(value2.className == "down"){
+					if(value<90){
+					stop();
+					td[value+10].style.backgroundColor = "#FF0000";
+					newDiv(newDiv,td[value+10],"down","buttom")
+					value+=10;
+					}else{
+						alert("走到世界的尽头啦！");
+					}
+				}
+
+			}
+			// else if(input.value =="left"){
+
+			// }
+			else{
+				alert("请输入正确指令！");
+			}
+		}
+		}
+		
+	</script>
+</body>
+</html>
