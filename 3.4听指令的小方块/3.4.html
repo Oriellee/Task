@@ -34,27 +34,22 @@
 	button:focus{
 		background-color: #F08080;
 	}
-	.up,.down{
+	
+	
+	.blue{
 		width: 100%;
-		height: 10px;
-		border:none;
-		background: blue; 
+		height: 33%;
+		background-color: blue;
 	}
-	.right{
-		width: 10px;
+	.red{
+		width: 100%;
+		height: 66%;
+		background-color: red;
+	}
+	.father{
+		width: 100%;
 		height: 100%;
-		float: right;
-		border:none;
-		background: blue; 
 	}
-	.left{
-		width: 10px;
-		height: 100%;
-		float: left;
-		border:none;
-		background: blue; 
-	}
-
 	</style>
 	
 </head>
@@ -206,7 +201,6 @@
 				<td></td>
 			</tr>
 		</table>
-		<div id="blue"></div>
 		<section>
 			<button id="open1">开始</button>
 			<input type="text" id="input">
@@ -218,8 +212,6 @@
 			return document.getElementById(id);
 		}	
 		var td = document.querySelectorAll("td");	
-		var top = 0;
-
 		function random(min,max){
 			var num = Math.floor(Math.random()*(max-min)+min);
 			return num;
@@ -231,54 +223,123 @@
 				a.innerHTML = "";
 			}
 		}
-		function newDiv(newDiv,parents,classname,verticalAlign){
-			var newDiv = document.createElement("div");
-			parents.appendChild(newDiv);
-			parents.style.verticalAlign = "";
-			newDiv.className = classname;
-			parents.style.verticalAlign = verticalAlign;
+		function newDiv(parents,number,newdeg){
+			var father = document.createElement("div");
+			var red = document.createElement("div");
+			var blue = document.createElement("div");
+			parents.appendChild(father);
+			father.appendChild(blue);
+			father.appendChild(red);
+			father.className = "father";
+			father.style.transform = "rotate("+newdeg*90+"deg)";
+			blue.className = "blue";
+			red.className = "red";
+			goOn(father,number);
 		}
 		open1.onclick = function(){
 			var number = random(0,100);
 			stop();
-			td[number].style.backgroundColor = "#FF0000";
-			newDiv(newDiv,td[number],"down","top");
-			goOn(number,newDiv);
-			console.log(newDiv);
-		}
-		function goOn(value,value2){
-			btn.onclick = function(){
-			if(input.value =="go"||input.value =="bottom"||input.value =="right"||input.value =="top"){
-				if(value2.className == "up"){
-					if(value>10){
-					stop();
-					td[value-10].style.backgroundColor = "#FF0000";
-					newDiv(newDiv,td[value-10],"up","top")
-					value-=10;
-					}else{
-						alert("走到世界的尽头啦！");
-					}
-				}else if(value2.className == "down"){
-					if(value<90){
-					stop();
-					td[value+10].style.backgroundColor = "#FF0000";
-					newDiv(newDiv,td[value+10],"down","buttom")
-					value+=10;
-					}else{
-						alert("走到世界的尽头啦！");
-					}
-				}
-
-			}
-			// else if(input.value =="left"){
-
-			// }
-			else{
-				alert("请输入正确指令！");
-			}
-		}
+			newDiv(td[number],number,"-0");
 		}
 		
+		function goOn(father,number){
+			btn.onclick = function(){
+				if(!input.value||father==null){
+				alert("请输入指令或新建格子！");
+				}else{
+					var str = father.style.transform.match(/\-?\d/g).join("")/1;
+					var newBox = (str%360)/90;
+					switch(input.value){
+					case "left":
+						changeDirection(father,-90);
+						break;
+					case "right":
+						changeDirection(father,-90);
+						break;
+					case "bottom":
+						changeDirection(father,-180);
+						break;
+					case "go":
+						move(father,number,newBox);
+						break;
+					default:
+						alert("请输入正确的指令！");
+
+					}
+				}
+			}
+		}
+		function move(father,number,newBox){
+			var newNumber = String(number).split("");
+				if(newBox == "-0"){
+					if(number>10){
+						stop();
+						newDiv(td[number-10],number-10,newBox);
+						}else{
+							alert("到世界的尽头啦！");
+						}
+				}if(newBox == "-2"){
+					if(number<90){
+						stop();
+						newDiv(td[number+10],number+10,newBox);
+						}else{
+							alert("到世界的尽头啦！");
+						}
+				}if(newBox == "-1"){
+					if(newNumber.length>1){
+						if(number>newNumber[0]+0){
+						stop();
+						newDiv(td[number-1],number-1,newBox);
+						}else{
+							alert("到世界的尽头啦！");
+						}
+					}else{
+							if(number>0){
+							stop();
+							newDiv(td[number-1],number-1,newBox);
+							}else{
+								alert("到世界的尽头啦！");
+						}
+					}
+					
+				}if(newBox == "-3"){
+					if(newNumber.length>1){
+						if(number<newNumber[0]+9){
+						stop();
+						newDiv(td[number+1],number+1,newBox);
+						}else{
+							alert("到世界的尽头啦！");
+						}
+					}else{
+						if(number<9){
+						stop();
+						newDiv(td[number+1],number+1,newBox);
+						}else{
+							alert("到世界的尽头啦！");
+						}
+					}
+					
+				}
+
+		}
+		goOn();
+		function changeDirection(ele,deg){
+			if (!ele.style.transform) {
+			ele.style.transform = "rotate(" + deg+"deg)";
+			return (deg%360)/90;
+			}
+			else{
+				var str = ele.style.transform;
+				var olddeg = str.match(/\-?\d/g).join("")/1;//匹配原来的角度数
+				var newdeg = olddeg+deg;
+				if (newdeg>360) {
+					newdeg -=360;
+				}
+				ele.style.transform =  "rotate(" + newdeg+"deg)";
+				return (newdeg%360)/90;
+			}
+
+		}
 	</script>
 </body>
 </html>
