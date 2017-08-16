@@ -290,14 +290,14 @@
 						if(newNumber.length>1){
 						if(number>newNumber[0]+0){
 						stop();
-						newDiv(td[number-1],number-1,null);
+						newDiv(td[number-1],number-1,newBox);
 						}else{
 							alert("到世界的尽头啦！");
 							}
 						}else{
 							if(number>0){
 							stop();
-							newDiv(td[number-1],number-1,null);
+							newDiv(td[number-1],number-1,newBox);
 							}else{
 								alert("到世界的尽头啦！");
 							}
@@ -306,7 +306,7 @@
 					case "TRA TOP":
 						if(number>9){
 						stop();
-						newDiv(td[number-10],number-10,null);
+						newDiv(td[number-10],number-10,newBox);
 						}else{
 							alert("到世界的尽头啦！");
 						}
@@ -315,14 +315,14 @@
 						if(newNumber.length>1){
 						if(number<newNumber[0]+9){
 						stop();
-						newDiv(td[number+1],number+1,null);
+						newDiv(td[number+1],number+1,newBox);
 						}else{
 							alert("到世界的尽头啦！");
 						}
 					}else{
 						if(number<9){
 						stop();
-						newDiv(td[number+1],number+1,null);
+						newDiv(td[number+1],number+1,newBox);
 						}else{
 							alert("到世界的尽头啦！");
 						}
@@ -331,7 +331,7 @@
 					case "TRA BOT":
 						if(number<90){
 						stop();
-						newDiv(td[number+10],number+10,null);
+						newDiv(td[number+10],number+10,newBox);
 						}else{
 							alert("到世界的尽头啦！");
 						}
