@@ -100,13 +100,6 @@
 			return document.getElementById(id);
 		} 
 		var h2 = document.querySelector("#box h2");
-		var params = {
-			left:0,
-			top:0,
-			currentX:0,
-			currentY:0,
-			flag:false
-		};
 		btn.onclick = function(){
 			before.style.visibility = "visible";
 		}//点击按钮显示弹出层。
@@ -116,53 +109,51 @@
 		blackcanvas.onclick = function(){
 			before.style.visibility = "hidden";
 		}//点击背景层隐藏弹出层。
-		
-		var params = {
-				left: 0,
-				top: 0,
-				currentX: 0,
-				currentY: 0,
-				flag: false
-			};
-			//获取元素的坐标
-			function getCss(node, key) {
-				return document.defaultView.getComputedStyle(node, null)[key];
+
+		// 定义一个json数组。
+		var oldjson = {
+			left:0,
+			top:0,
+			currentX:0,
+			currentY:0,
+			flag:false
+		};
+		// 获取box的初始位置。
+		function getCss(node,key){
+			return document.defaultView.getComputedStyle(node,null)[key];
+		}
+		function move(target){
+			// 获取当前的弹出层的left，和top。
+			oldjson.left = getCss(target,"left");
+			oldjson.top = getCss(target,"top");
+			// 当鼠标点击时，记录当前弹出层的位置。
+			target.onmousedown = function(evt){
+				oldjson.currentX = evt.clientX;
+				oldjson.currentY = evt.clientY;
+				oldjson.flag = true;
 			}
-		function drag(target) {
-				//获取弹出层现在的位置
-				params.left = getCss(target, 'left');
-				params.top = getCss(target, 'top');
-				target.onmousedown = function(evt) {
-					//设置标记为true
-					params.flag = true;
-					//阻止鼠标按下时的默认事件
-					evt.preventDefault();
-					//记录鼠标按下时,鼠标在窗口中的位置
-					params.currentX = evt.clientX;
-					params.currentY = evt.clientY;
-				};
-				target.onmouseup = function(evt) {
-					//设置标记为false
-					params.flag = false;
-					//更新弹出层在窗口中的位置数据
-					params.left = getCss(target, 'left');
-					params.top = getCss(target, 'top');
-				};
-				target.onmousemove = function(evt) {
-					if (params.flag) {
-						//记录鼠标现在在窗口中的位置
-						var nowX = evt.clientX;
-						var nowY = evt.clientY;
-						//通过鼠标现在的位置减去鼠标按下时的位置,来计算鼠标移动的距离
-						var disX = nowX - params.currentX;
-						var disY = nowY - params.currentY;
-						//用弹出层原来的位置加上鼠标移动的距离,来更新弹出层的位置
-						target.parentNode.style.left = parseInt(params.left) + disX + 'px';
-						target.parentNode.style.top = parseInt(params.top) + disY + 'px';
-					}
-				};
+			// 当鼠标离开时，更新json中的left，和top为当前的新数据。
+			target.onmouseup = function(evt){
+				oldjson.left = getCss(target,"left");
+				oldjson.top = getCss(target,"top");
+				oldjson.flag = false;
 			}
-			drag(h2);
+			// 移动鼠标。
+			target.onmousemove = function(evt){
+				if(oldjson.flag){
+					// 获取鼠标当前位置。
+					var newX = evt.clientX;
+					var newY = evt.clientY;
+					// 定义当前位置与鼠标初始位置之差。
+					var delX = newX - oldjson.currentX;
+					var delY = newY - oldjson.currentY;
+					// 弹出层位置等于初始的left和top加上鼠标移动数值。
+					target.parentNode.style.left = parseInt(oldjson.left) + delX + "px";
+					target.parentNode.style.top = parseInt(oldjson.top) + delY + "px";
+				}
+			}
+		}
+		move(h2);
 	</script>
 </body>
 </html>
