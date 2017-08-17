@@ -35,20 +35,32 @@
 			/*display: none;*/
 			visibility: hidden;
 		}
+		#blackcanvas{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
 		#box{
+			z-index: 999;
 			width: 350px;
 			height: 250px;
 			background-color:#F5F5F5;
+			position: fixed;
+			
 		}
 		#box h2{
-			width: 100%;
-			height: 50px;
+			width: 340px;
+			height: 40px;
+			padding: 5px;
 			background-color:#C0C0C0;
 			margin: 0;
+			cursor: move;
+			position: fixed;
+
 		}
 		#box p{
-			margin: 0;
-			padding: 5px 10px;
+			margin-top: 50px;
+			padding-left: 10px;
 			width: 330px;
 			height: 140px;
 		}
@@ -74,6 +86,7 @@
 		<button id="btn">弹出</button>
 	</div>
 	<div id="before">
+		<div id="blackcanvas"></div>
 		<div id="box">
 			<h2>提示</h2>
 			<p>弹出层文字</p>
@@ -87,16 +100,70 @@
 		var $ = function(id){
 			return document.getElementById(id);
 		} 
+		var h2 = document.querySelector("#box h2");
+		var params = {
+			left:0,
+			top:0,
+			currentX:0,
+			currentY:0,
+			flag:false
+		};
 		btn.onclick = function(){
 			before.style.visibility = "visible";
-			box.focus();
-		}
+		}//点击按钮显示弹出层。
 		function close1(){
 			before.style.visibility = "hidden";
-		}
-		before.onclick = function(){
+		}//点击确定和取消按钮隐藏弹出层。
+		blackcanvas.onclick = function(){
 			before.style.visibility = "hidden";
-		}
+		}//点击背景层隐藏弹出层。
+		
+		var params = {
+				left: 0,
+				top: 0,
+				currentX: 0,
+				currentY: 0,
+				flag: false
+			};
+			//获取元素的坐标
+			function getCss(node, key) {
+				return document.defaultView.getComputedStyle(node, null)[key];
+			}
+		function drag(target) {
+				//获取弹出层现在的位置
+				params.left = getCss(target, 'left');
+				params.top = getCss(target, 'top');
+				target.onmousedown = function(evt) {
+					//设置标记为true
+					params.flag = true;
+					//阻止鼠标按下时的默认事件
+					evt.preventDefault();
+					//记录鼠标按下时,鼠标在窗口中的位置
+					params.currentX = evt.clientX;
+					params.currentY = evt.clientY;
+				};
+				target.onmouseup = function(evt) {
+					//设置标记为false
+					params.flag = false;
+					//更新弹出层在窗口中的位置数据
+					params.left = getCss(target, 'left');
+					params.top = getCss(target, 'top');
+				};
+				target.onmousemove = function(evt) {
+					if (params.flag) {
+						//记录鼠标现在在窗口中的位置
+						var nowX = evt.clientX;
+						var nowY = evt.clientY;
+						//通过鼠标现在的位置减去鼠标按下时的位置,来计算鼠标移动的距离
+						var disX = nowX - params.currentX;
+						var disY = nowY - params.currentY;
+						//用弹出层原来的位置加上鼠标移动的距离,来更新弹出层的位置
+						target.parentNode.style.left = parseInt(params.left) + disX + 'px';
+						target.parentNode.style.top = parseInt(params.top) + disY + 'px';
+					}
+				};
+			}
+			drag(h2);
 	</script>
 </body>
 </html>

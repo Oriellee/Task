@@ -54,6 +54,7 @@
 		width: 100%;
 		height: 100%;
 		transition: all 1s;
+		/*定义旋转的元素和时间*/
 	}
 	</style>
 	
@@ -227,15 +228,20 @@
 		</section>
 	</div>
 	<script>
+		// 根据id获取元素对象
 		var $ = function(id){
 			return document.getElementById(id);
 		}
 		var btn = document.querySelector("#btn");	
 		var td = document.querySelectorAll("td");	
+
+		// 定义一个随机函数
 		function random(min,max){
 			var num = Math.floor(Math.random()*(max-min)+min);
 			return num;
 		}
+
+		// 定义停止的函数，调用该函数后页面进入for循环，使所有的td背景色变为白色。
 		function stop(){
 			for(var i=0;i<td.length;i++){
 				var a = td[i];
@@ -243,12 +249,15 @@
 				a.innerHTML = "";
 			}
 		}
+		// 页面中的按钮点击传回按钮的名称
 		btn.onclick = function(){
 			buttonText(event.target);
 		}
+		// 输入框的值等于按钮名称
 		function buttonText(value){
 			input.value = value.innerHTML;
 		}
+		// 新建一个box的div,传回父辈td函数,td所在的位置以及方向.
 		function newDiv(parents,number,newdeg){
 			var father = document.createElement("div");
 			var red = document.createElement("div");
@@ -262,12 +271,13 @@
 			red.className = "red";
 			goOn(father,number);
 		}
+		// 生成一个随机的box.
 		open1.onclick = function(){
 			var number = random(0,100);
 			stop();
 			newDiv(td[number],number,"0");
 		}
-		
+		// 传回父辈td函数,和td所在位置,判断输入值后调用改变方向的函数和go函数.
 		function goOn(father,number){
 			run.onclick = function(){
 				if(!input.value||father==null){
@@ -395,6 +405,7 @@
 				}
 			}
 		}
+		// 根据td,td的位置和td的方向,不断的生成新的box和调用stop函数消除之前的box。
 		function move(father,number,newBox){
 			var newNumber = String(number).split("");
 				if(newBox == "-0"){
@@ -449,6 +460,7 @@
 
 		}
 		goOn();
+		// 根据传回的td和角度值改编box的方向。
 		function changeDirection(ele,deg){
 			if (!ele.style.transform) {
 			ele.style.transform = "rotate(" + deg+"deg)";
@@ -463,6 +475,7 @@
 				}
 				ele.style.transform =  "rotate(" + newdeg+"deg)";
 				return (newdeg%360)/90;
+				// 返回的数值是一个余数除以90，绝对值只为1.2.3.0的值。
 			}
 
 		}
