@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>3.7</title>
+	<style type="text/css">
+		#box{
+			width: 500px;
+			border:1px solid red;
+			margin: 50px auto;
+			overflow: hidden;
+		}
+		table{
+			width: 500px;
+			border:1px solid #5F9EA0;
+			text-align: center;
+			border-spacing: 0;
+		}
+		tr,th,td{
+			height: 30px;
+			border:1px solid #5F9EA0;
+		}
+		th{
+			background-color: #696969;
+			color: #fff;
+			width: 100px;
+		}
+		section{
+			width: 290px;
+			margin: 10px 5px;
+			float: right;
+			text-align: center;
+			border:1px solid red;
+		}
+		button{
+			width: 70px;
+			height: 28px;
+			margin: 5px;
+			border-radius: 5px;
+			background-color: #C0C0C0;
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<table>
+			<tbody id="table">
+				<tr id="sort">
+					<th>姓名</th>
+					<th>语文  ↕</th>
+					<th>数学  ↕</th>
+					<th>英语  ↕</th>
+					<th>总分  ↕</th>
+				</tr>
+				<tr>
+					<td contenteditable="true">小明</td>
+					<td class="one" contenteditable="true">80</td>
+					<td class="two" contenteditable="true">90</td>
+					<td class="three" contenteditable="true">79</td>
+					<td class="total" contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td contenteditable="true">小红</td>
+					<td class="one" contenteditable="true">87</td>
+					<td class="two" contenteditable="true">95</td>
+					<td class="three" contenteditable="true">69</td>
+					<td class="total" contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td contenteditable="true">小李</td>
+					<td class="one" contenteditable="true">99</td>
+					<td class="two" contenteditable="true">99</td>
+					<td class="three" contenteditable="true">100</td>
+					<td class="total" contenteditable="true"></td>
+				</tr>
+			</tbody>
+		</table>
+		<section>
+			<button id="sum1">计算总分</button>
+			<button id="add">增加</button>
+			<button id="del">删除</button>
+		</section>
+	</div>
+	<script type="text/javascript">
+	var $ = function(id){
+			return document.getElementById(id);
+		}
+	function sum(){
+		var total = document.querySelectorAll(".total");
+		var one = document.querySelectorAll(".one");
+		var two = document.querySelectorAll(".two");
+		var three = document.querySelectorAll(".three");
+		for(var i=0;i<total.length;i++){
+			if(one[i].innerHTML!=""&two[i].innerHTML!=""&&three[i].innerHTML!=""){
+				total[i].innerHTML = parseInt(one[i].innerHTML)+parseInt(two[i].innerHTML)+parseInt(three[i].innerHTML);
+				}
+			}
+		}
+	sum();
+	sum1.addEventListener("click",sum)
+
+		var a = ["null","null","one","two","three","total"];
+		add.onclick = function(){
+			var newTr = document.createElement("tr");
+			table.appendChild(newTr);
+			for(var i = 1;i<6;i++){
+				var newTd = document.createElement("td");
+				newTr.appendChild(newTd);
+				newTd.setAttribute("contenteditable", true);
+				newTd.className = a[i];
+			}
+		}
+		del.onclick = function(){
+			table.removeChild(table.lastChild);
+		}
+	</script>
+</body>
+</html>
