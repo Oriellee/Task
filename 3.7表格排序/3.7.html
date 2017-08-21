@@ -48,10 +48,10 @@
 			<tbody id="table">
 				<tr id="sort">
 					<th>姓名</th>
-					<th>语文  ↕</th>
-					<th>数学  ↕</th>
-					<th>英语  ↕</th>
-					<th>总分  ↕</th>
+					<th id="chinese">语文  ↕</th>
+					<th id="math">数学  ↕</th>
+					<th id="english">英语  ↕</th>
+					<th id="all">总分  ↕</th>
 				</tr>
 				<tr>
 					<td contenteditable="true">小明</td>
@@ -86,6 +86,7 @@
 	var $ = function(id){
 			return document.getElementById(id);
 		}
+		var row = 3;
 	function sum(){
 		var total = document.querySelectorAll(".total");
 		var one = document.querySelectorAll(".one");
@@ -109,11 +110,56 @@
 				newTr.appendChild(newTd);
 				newTd.setAttribute("contenteditable", true);
 				newTd.className = a[i];
+				row++;
 			}
 		}
 		del.onclick = function(){
-			table.removeChild(table.lastChild);
+			var tr = document.querySelectorAll("tr");
+			if(tr.length>1){
+				table.deleteRow(tr.length-1);
+				row--;
+			}
+			else{
+				alert("所有行都清空啦！");
+			}
 		}
+		chinese.onclick = function(){
+			var total = document.querySelectorAll(".total");
+			var one = document.querySelectorAll(".one");
+			var two = document.querySelectorAll(".two");
+			var three = document.querySelectorAll(".three");
+			var temp;
+			for(var k = 1;k<row;k++){
+				for(var j =k+1;j<row+1;j++){
+					for(var i=1;i<row.childNode;i++){
+						if(table[k][i]>table[j][i]){
+							temp = table[k];
+							table[k] = table[j];
+							table[j] = temp;
+						}
+					}
+				}
+			}
+		}
+		// 	for(var i=0;i<one.length;i++){
+		// 		a.push(one[i].innerHTML);
+		// 		if(check ==1){
+		// 			a.sort(function(c,d){
+		// 			return c-d;
+		// 			});
+		// 			check =2;
+		// 		}else{
+		// 			a.sort(function(c,d){
+		// 			return d-c;
+		// 			});
+		// 			check =1;
+		// 		}
+				
+		// 	}
+		// 	for(var j=0;j<one.length;j++){
+		// 		one[j].innerHTML = a[j];
+		// 	}
+		// }
 	</script>
 </body>
 </html>
