@@ -45,17 +45,17 @@
 <body>
 	<div id="box">
 		<table>
-			<tbody id="table">
-				<tr id="sort">
+			<tbody id="table1">
+				<tr id="sort1">
 					<th>姓名</th>
 					<th id="chinese">语文  ↕</th>
 					<th id="math">数学  ↕</th>
 					<th id="english">英语  ↕</th>
-					<th id="all">总分  ↕</th>
+					<th id="total">总分  ↕</th>
 				</tr>
 				<tr>
 					<td contenteditable="true">小明</td>
-					<td class="one" contenteditable="true">80</td>
+					<td class="one" contenteditable="true">100</td>
 					<td class="two" contenteditable="true">90</td>
 					<td class="three" contenteditable="true">79</td>
 					<td class="total" contenteditable="true"></td>
@@ -87,6 +87,7 @@
 			return document.getElementById(id);
 		}
 		var row = 3;
+		var direction = "up";
 	function sum(){
 		var total = document.querySelectorAll(".total");
 		var one = document.querySelectorAll(".one");
@@ -104,7 +105,7 @@
 		var a = ["null","null","one","two","three","total"];
 		add.onclick = function(){
 			var newTr = document.createElement("tr");
-			table.appendChild(newTr);
+			table1.appendChild(newTr);
 			for(var i = 1;i<6;i++){
 				var newTd = document.createElement("td");
 				newTr.appendChild(newTd);
@@ -116,50 +117,55 @@
 		del.onclick = function(){
 			var tr = document.querySelectorAll("tr");
 			if(tr.length>1){
-				table.deleteRow(tr.length-1);
+				table1.deleteRow(tr.length-1);
 				row--;
 			}
 			else{
 				alert("所有行都清空啦！");
 			}
 		}
-		chinese.onclick = function(){
-			var total = document.querySelectorAll(".total");
-			var one = document.querySelectorAll(".one");
-			var two = document.querySelectorAll(".two");
-			var three = document.querySelectorAll(".three");
-			var temp;
-			for(var k = 1;k<row;k++){
-				for(var j =k+1;j<row+1;j++){
-					for(var i=1;i<row.childNode;i++){
-						if(table[k][i]>table[j][i]){
-							temp = table[k];
-							table[k] = table[j];
-							table[j] = temp;
-						}
-					}
-				}
+		function sortChange(value1,value2){
+			var tRows = document.getElementsByTagName("tr");
+	 		var tempTr = [];
+			for(var i=0;i<tRows.length;i++){
+				tempTr[i]= tRows[i];
+			}
+			if(value2 =="up"){
+				tempTr.sort(function(td1,td2){
+				return parseInt(td2.cells[value1].innerHTML) - parseInt(td1.cells[value1].innerHTML);
+				});
+			}
+			else if(value2 =="down"){
+				tempTr.sort(function(td1,td2){
+				return parseInt(td1.cells[value1].innerHTML) - parseInt(td2.cells[value1].innerHTML);
+				});
+			}
+			for(var j=0;j<tempTr.length;j++){
+				table1.appendChild(tempTr[j]);
+			}
+	    }   
+
+		function changeDirection(value){
+			if(direction == "up"){
+				sortChange(value,"up");
+				direction = "down";
+			}else{
+				sortChange(value,"down");
+				direction = "up";
 			}
 		}
-		// 	for(var i=0;i<one.length;i++){
-		// 		a.push(one[i].innerHTML);
-		// 		if(check ==1){
-		// 			a.sort(function(c,d){
-		// 			return c-d;
-		// 			});
-		// 			check =2;
-		// 		}else{
-		// 			a.sort(function(c,d){
-		// 			return d-c;
-		// 			});
-		// 			check =1;
-		// 		}
-				
-		// 	}
-		// 	for(var j=0;j<one.length;j++){
-		// 		one[j].innerHTML = a[j];
-		// 	}
-		// }
+		function self(value){
+			var text = [];
+			var first = document.querySelectorAll("#sort1 th");
+			for(var i=0;i<first.length;i++){
+				text[i] = first[i].innerHTML;
+			}
+			changeDirection(text.indexOf(value.innerHTML));
+			console.log(text.indexOf(value.innerHTML));
+		}
+		sort1.onclick = function(){
+			self(event.target);
+		}
 	</script>
 </body>
 </html>
